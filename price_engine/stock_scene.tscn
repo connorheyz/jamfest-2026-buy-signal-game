@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cj0ka5piaau77"]
+
+[ext_resource type="Script" uid="uid://bdls0x16hulgt" path="res://price_engine/stock_scene.gd" id="1_ukfvf"]
+
+[node name="StockScene" type="Node" unique_id=838909554]
+script = ExtResource("1_ukfvf")
+
+[node name="Timer" type="Timer" parent="." unique_id=1959653040]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

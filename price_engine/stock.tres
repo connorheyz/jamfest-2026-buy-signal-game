@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="Stock" format=3 uid="uid://be2tc1ql2dpmi"]
+
+[ext_resource type="Script" uid="uid://th2tlyhy2w0t" path="res://price_engine/stock.gd" id="1_yb6bf"]
+
+[resource]
+script = ExtResource("1_yb6bf")
