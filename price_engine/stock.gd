@@ -8,7 +8,7 @@ var current_function: int
 var rng: RandomNumberGenerator
 
 func _init() -> void:
-	functions = [StockFunction.new(), UpwardLinear.new(), DownwardLinear.new()]
+	functions = [StockFunction.new(), Linear.new()]
 	function_weights = [3, 6, 5]
 	function_gammas = [0.3, 0.2, 0.4]
 	current_function = 0
