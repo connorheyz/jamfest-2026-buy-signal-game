@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://bhilrckvcxdpa" path="res://test/desktop_concept.png" id="1_cg3fv"]
 [ext_resource type="Script" uid="uid://dmh3yvetm8y26" path="res://desktop/sock_minigame.gd" id="1_py4qr"]
 [ext_resource type="PackedScene" uid="uid://5e1so7qveen1" path="res://stock_chart/live_stock_ticker.tscn" id="3_xkt3d"]
+[ext_resource type="Script" uid="uid://dbwvsvfhxscud" path="res://desktop/clock.gd" id="4_xkt3d"]
 
 [node name="Desktop" type="Control" unique_id=1725560712 node_paths=PackedStringArray("stock_ticker")]
 layout_mode = 3
@@ -36,3 +37,41 @@ offset_bottom = 406.0
 unique_name_in_owner = true
 wait_time = 0.5
 autostart = true
+
+[node name="ProfitLabel" type="Label" parent="." unique_id=1638952226]
+unique_name_in_owner = true
+z_index = 1
+layout_mode = 0
+offset_left = 242.0
+offset_top = 101.0
+offset_right = 352.0
+offset_bottom = 160.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Day Change: 0
+"
+
+[node name="TickerLabel" type="Label" parent="." unique_id=1849337047]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 848.0
+offset_top = 108.0
+offset_right = 909.0
+offset_bottom = 139.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "VTI"
+horizontal_alignment = 2
+
+[node name="HalfHourTimer" type="Timer" parent="." unique_id=421547147]
+unique_name_in_owner = true
+wait_time = 3.0
+autostart = true
+
+[node name="Clock" type="Label" parent="." unique_id=247581126]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 231.0
+offset_top = 344.0
+offset_right = 464.0
+offset_bottom = 392.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+script = ExtResource("4_xkt3d")
