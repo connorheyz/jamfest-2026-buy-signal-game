@@ -25,6 +25,11 @@ func _ready() -> void:
 func price_to_height(price: Price) -> float:
 	return origin_y - price.price * vertical_scaling
 	
+func get_latest_price() -> Price:
+	if prices.size() > 0:
+		return prices[-1]
+	return null
+	
 func price_to_offset(price: Price) -> float:
 	return origin_x + price.time * horizontal_spacing
 	
@@ -45,7 +50,7 @@ func transform_verticies() -> Array[Vector2]:
 	return arr
 	
 func create_polygons_from_price_vertices():
-	var transformed_vertices = transform_verticies()
+	var transformed_vertices = transform_verticies().slice(-20)
 	transformed_vertices.append(Vector2((transformed_vertices[-1]).x, floor))
 	transformed_vertices.append(Vector2((transformed_vertices[0]-offset).x, floor))
 	return transformed_vertices
@@ -54,8 +59,8 @@ func append_price(price: Price):
 	prices.append(price)
 	var vertex: Vector2 = create_vertex_for_price(price)
 	vertices.append(vertex)
+	offset = Vector2(max(0,(price_to_offset(prices[-1])) - (origin_x + get_global_rect().size.x/2)), price_to_height(prices[-1]) - origin_y)
 	%StockLine.points = transform_verticies()
 	var price_polygon: Array[Vector2] = create_polygons_from_price_vertices()
 	%StockPolygon.polygon = price_polygon
-	offset = Vector2(max(0,(price_to_offset(prices[-1])) - (origin_x + get_global_rect().size.x/2)), 0.0)
 		
