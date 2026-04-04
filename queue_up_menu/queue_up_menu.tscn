@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://b4l86xnah0j5g"]
+
+[ext_resource type="Script" uid="uid://d2ni0oov31jlx" path="res://queue_up_menu/queue_up_menu.gd" id="1_vh60u"]
+
+[node name="QueueUpMenu" type="Node2D" unique_id=1808077402]
+script = ExtResource("1_vh60u")
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="." unique_id=1817837942]
+offset_right = 204.0
+offset_bottom = 204.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="AspectRatioContainer" unique_id=1617967805]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AspectRatioContainer/VBoxContainer" unique_id=546662633]
+layout_mode = 2
+text = "New cue event:"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer" unique_id=1470860945]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AspectRatioContainer/VBoxContainer/HBoxContainer" unique_id=1137755270]
+layout_mode = 2
+text = "Type:"
+
+[node name="TypeLineEdit" type="LineEdit" parent="AspectRatioContainer/VBoxContainer/HBoxContainer" unique_id=2125785380]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer" unique_id=2144592581]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2" unique_id=320981626]
+layout_mode = 2
+text = "Volatility:"
+
+[node name="VolatilityLineEdit" type="LineEdit" parent="AspectRatioContainer/VBoxContainer/HBoxContainer2" unique_id=1797098410]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer" unique_id=1412410528]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AspectRatioContainer/VBoxContainer/HBoxContainer3" unique_id=1592125964]
+layout_mode = 2
+text = "Start:"
+
+[node name="StartLineEdit" type="LineEdit" parent="AspectRatioContainer/VBoxContainer/HBoxContainer3" unique_id=956614048]
+unique_name_in_owner = true
+layout_mode = 2
+alignment = 2
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="AspectRatioContainer/VBoxContainer" unique_id=702080002]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="AspectRatioContainer/VBoxContainer/HBoxContainer4" unique_id=1971237445]
+layout_mode = 2
+text = "Duration:"
+
+[node name="DurationLineEdit" type="LineEdit" parent="AspectRatioContainer/VBoxContainer/HBoxContainer4" unique_id=1390629311]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Button" type="Button" parent="AspectRatioContainer/VBoxContainer" unique_id=867991519]
+layout_mode = 2
+text = "Create event"
+
+[connection signal="pressed" from="AspectRatioContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

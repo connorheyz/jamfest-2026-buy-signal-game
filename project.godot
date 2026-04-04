@@ -18,6 +18,10 @@ config/icon="res://icon.svg"
 
 PlayerSaveState="*uid://b4ospbhkc3pt6"
 
+[dotnet]
+
+project/assembly_name="Jamfest Buy Signal"
+
 [input]
 
 buy={

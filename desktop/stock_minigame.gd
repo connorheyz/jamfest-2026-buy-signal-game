@@ -19,7 +19,8 @@ func _ready() -> void:
 	%HalfHourTimer.timeout.connect(_advance_time)
 	%Clock.update_time_label(current_time)
 	stock_ticker.append_price(Price.new(PlayerSaveState.previous_day_close, 0))
-	
+
+
 func _advance_time() -> void:
 	current_time += 1
 	%Clock.update_time_label(current_time)
@@ -74,3 +75,7 @@ func _on_tick_timeout() -> void:
 		stock_ticker.set_color(Color.RED)
 	current_tick += 1
 	%TickTimer.start()
+
+
+func _on_queue_up_menu_button_queue_up_pressed(type: Stock.FunctionType, p_volatility: float, start_ticks: int, duration_ticks: int) -> void:
+	%StockScene.queue_up(type, p_volatility, start_ticks, duration_ticks)
