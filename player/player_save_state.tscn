@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b4ospbhkc3pt6"]
+
+[ext_resource type="Script" uid="uid://1aaubp8gjpku" path="res://player/player_save_state.gd" id="1_qm5h6"]
+
+[node name="PlayerSave" type="Node" unique_id=734957080]
+script = ExtResource("1_qm5h6")

@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://by4rq741bdr8h"]
+
+[ext_resource type="Texture2D" uid="uid://c0m537j45b22p" path="res://test/ZackBG.png" id="2_yixt3"]
+[ext_resource type="Script" uid="uid://wgfwn84bmhlm" path="res://desktop/money_count.gd" id="3_nqtfi"]
+[ext_resource type="Script" uid="uid://baia7oc5hv05w" path="res://desktop/next_button_results.gd" id="4_qn5pl"]
+
+[node name="Desktop" type="Control" unique_id=1725560712]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=261100800]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_yixt3")
+expand_mode = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1792684661]
+layout_mode = 0
+offset_left = 210.0
+offset_top = 64.0
+offset_right = 945.0
+offset_bottom = 408.0
+theme_override_font_sizes/normal_font_size = 64
+theme_override_font_sizes/bold_font_size = 64
+theme_override_font_sizes/bold_italics_font_size = 64
+theme_override_font_sizes/italics_font_size = 64
+theme_override_font_sizes/mono_font_size = 64
+text = "$500"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("3_nqtfi")
+
+[node name="NextButtonResults" type="Button" parent="." unique_id=1234109719]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 225.0
+offset_top = 325.0
+offset_right = 934.0
+offset_bottom = 393.0
+text = "Next"
+script = ExtResource("4_qn5pl")
