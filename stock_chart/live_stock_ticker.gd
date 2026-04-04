@@ -1,67 +1,61 @@
-extends Node2D
+extends Container
+class_name StockTicker
 
 @export var horizontal_spacing: float = 50.0
 @export var vertical_scaling: float = 1.0
 @export var ticker_size: float = 10.0
 
 var vertices: Array[Vector2]
-var prices: Array[float]
-var current_time_step: int = 0
+var prices: Array[Price]
 
-var height: float = 300
-# Called when the node enters the scene tree for the first time.
+var origin_y: float
+var origin_x: float
+var floor: float = 0
+var offset: Vector2 = Vector2.ZERO
+
 func _ready() -> void:
-	%TickTimer.timeout.connect(_on_tick_timeout)
+	var size_x = get_global_rect().size.x
+	var size_y = get_global_rect().size.y
+	var position_x = get_global_rect().position.x
+	var position_y = get_global_rect().position.y
+	origin_y = (position_y/size_y) + (size_y/2)
+	origin_x = (position_x/size_x)
+	floor = origin_y + size_y/2
 	
-func price_to_height(price: float) -> float:
-	return height - price * vertical_scaling
+func price_to_height(price: Price) -> float:
+	return origin_y - price.price * vertical_scaling
+	
+func price_to_offset(price: Price) -> float:
+	return origin_x + price.time * horizontal_spacing
 	
 func set_color(color: Color):
 	%StockLine.default_color = color
 	%StockPolygon.color = color
 	
-func _on_tick_timeout() -> void:
-	var diff: float = (randi() % 50) - 25
-	if prices.size() < 1:
-		append_price(diff)
-	else:
-		append_price(prices[-1] + diff)
-	if diff > 0:
-		set_color(Color.GREEN_YELLOW)
-	else:
-		set_color(Color.RED)
-	current_time_step += 1
-	%TickTimer.start()
-	
-func create_vertex_for_price(price: float, time_step: int) -> Vector2:
+func create_vertex_for_price(price: Price) -> Vector2:
 	return Vector2(
-		time_step * horizontal_spacing, 
+		price_to_offset(price), 
 		price_to_height(price)
 	)
 	
-func create_polygons_from_price_vertices(floor: float):
-	if vertices.size() < 2:
-		return vertices
-	var arr: Array[Vector2] = vertices.duplicate()
-	arr.append(Vector2(vertices[-1].x, floor))
-	arr.append(Vector2(vertices[0].x, floor))
+func transform_verticies() -> Array[Vector2]:
+	var arr: Array[Vector2]
+	for vert in vertices:
+		arr.append(vert - offset)
 	return arr
 	
-func append_price(price: float):
+func create_polygons_from_price_vertices():
+	var transformed_vertices = transform_verticies()
+	transformed_vertices.append(Vector2((transformed_vertices[-1]).x, floor))
+	transformed_vertices.append(Vector2((transformed_vertices[0]-offset).x, floor))
+	return transformed_vertices
+	
+func append_price(price: Price):
 	prices.append(price)
-	var vertex: Vector2 = create_vertex_for_price(price, current_time_step)
+	var vertex: Vector2 = create_vertex_for_price(price)
 	vertices.append(vertex)
-	%StockLine.points = vertices
-	var price_polygon: Array[Vector2] = create_polygons_from_price_vertices(600)
+	%StockLine.points = transform_verticies()
+	var price_polygon: Array[Vector2] = create_polygons_from_price_vertices()
 	%StockPolygon.polygon = price_polygon
-
-func draw_prices():
-	for i in range(len(vertices)):
-		if i > 0:
-			draw_line(vertices[i-1], vertices[i], Color.GREEN)
-		var size_vector: Vector2 = Vector2(ticker_size, ticker_size)
-		draw_rect(Rect2((vertices[i] - size_vector/2), size_vector), Color.GREEN)
+	offset = Vector2(max(0,(price_to_offset(prices[-1])) - (origin_x + get_global_rect().size.x/2)), 0.0)
 		
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass

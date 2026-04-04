@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bh0n6ewvlmvep"]
+
+[ext_resource type="Texture2D" uid="uid://bhilrckvcxdpa" path="res://test/desktop_concept.png" id="1_cg3fv"]
+[ext_resource type="Script" uid="uid://dmh3yvetm8y26" path="res://desktop/sock_minigame.gd" id="1_py4qr"]
+[ext_resource type="PackedScene" uid="uid://5e1so7qveen1" path="res://stock_chart/live_stock_ticker.tscn" id="3_xkt3d"]
+
+[node name="Desktop" type="Control" unique_id=1725560712 node_paths=PackedStringArray("stock_ticker")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_py4qr")
+stock_ticker = NodePath("StockTicker")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=261100800]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_cg3fv")
+expand_mode = 1
+
+[node name="StockTicker" parent="." unique_id=1406283059 instance=ExtResource("3_xkt3d")]
+clip_contents = true
+layout_mode = 0
+offset_left = 219.0
+offset_top = 76.0
+offset_right = 920.0
+offset_bottom = 406.0
+
+[node name="TickTimer" type="Timer" parent="." unique_id=516875514]
+unique_name_in_owner = true
+wait_time = 0.5
+autostart = true
