@@ -4,6 +4,8 @@
 
 [node name="StockScene" type="Node" unique_id=838909554]
 script = ExtResource("1_ukfvf")
+volatility = null
+price = null
 
 [node name="Timer" type="Timer" parent="." unique_id=1959653040]
 wait_time = 0.5
