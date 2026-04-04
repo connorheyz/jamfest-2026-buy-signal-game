@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="Linear" format=3 uid="uid://q360mld0ddcr"]
+
+[ext_resource type="Script" uid="uid://b0aed0pbsivoq" path="res://price_engine/linear.gd" id="1_ouvi8"]
+
+[resource]
+script = ExtResource("1_ouvi8")
