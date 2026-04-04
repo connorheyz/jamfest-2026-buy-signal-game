@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://5e1so7qveen1"]
 
-[ext_resource type="Shader" uid="uid://cta01cc33nerh" path="res://2d_gradient.gdshader" id="1_0e48y"]
-[ext_resource type="Script" uid="uid://b04apjaej1l6x" path="res://drawing.gd" id="1_wtcfe"]
+[ext_resource type="Shader" uid="uid://cta01cc33nerh" path="res://stock_chart/2d_gradient.gdshader" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://b04apjaej1l6x" path="res://stock_chart/live_stock_ticker.gd" id="1_wtcfe"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0e48y"]
 shader = ExtResource("1_0e48y")
