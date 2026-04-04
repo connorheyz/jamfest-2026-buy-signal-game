@@ -60,7 +60,7 @@ func update_profit_label():
 	%ProfitLabel.text = "Day Change: $" + str(profit)
 
 func _on_tick_timeout() -> void:
-	var diff: float = (randi() % 50) - 25
+	var diff: float = %StockScene.do_tick()
 	if stock_ticker.prices.size() < 1:
 		stock_ticker.append_price(Price.new(diff, current_tick))
 		bought_price = diff

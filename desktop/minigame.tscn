@@ -5,8 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://bwcp3gc2fhxd6" path="res://test/BaseBG.png" id="3_sd31f"]
 [ext_resource type="Texture2D" uid="uid://dqqxtbnb1y38b" path="res://test/Hand.png" id="4_qmb8p"]
 [ext_resource type="PackedScene" uid="uid://5e1so7qveen1" path="res://stock_chart/live_stock_ticker.tscn" id="5_07u45"]
-[ext_resource type="Script" uid="uid://bkofdjp51nu8g" path="res://desktop/day_label.gd" id="6_7qdim"]
-[ext_resource type="Script" uid="uid://dbwvsvfhxscud" path="res://desktop/clock.gd" id="7_dipoy"]
+[ext_resource type="Script" path="res://desktop/day_label.gd" id="6_7qdim"]
+[ext_resource type="Script" path="res://desktop/clock.gd" id="7_dipoy"]
+[ext_resource type="PackedScene" uid="uid://cj0ka5piaau77" path="res://price_engine/stock_scene.tscn" id="8_mgcpr"]
 
 [node name="Desktop" type="Control" unique_id=1725560712 node_paths=PackedStringArray("stock_ticker")]
 layout_mode = 3
@@ -107,3 +108,6 @@ offset_bottom = 392.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "9:30"
 script = ExtResource("7_dipoy")
+
+[node name="StockScene" parent="." unique_id=838909554 instance=ExtResource("8_mgcpr")]
+unique_name_in_owner = true
