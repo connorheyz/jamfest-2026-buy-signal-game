@@ -2,7 +2,7 @@ extends Container
 class_name StockTicker
 
 @export var horizontal_spacing: float = 50.0
-@export var vertical_scaling: float = 1.0
+@export var vertical_scaling: float = 3.0
 @export var ticker_size: float = 10.0
 
 var vertices: Array[Vector2]
