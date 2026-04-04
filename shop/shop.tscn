@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://cvug0kyolx16a"]
+
+[ext_resource type="Texture2D" uid="uid://bwcp3gc2fhxd6" path="res://test/BaseBG.png" id="3_qsoi6"]
+[ext_resource type="Texture2D" uid="uid://dqqxtbnb1y38b" path="res://test/Hand.png" id="4_3mibv"]
+[ext_resource type="PackedScene" uid="uid://bh0n6ewvlmvep" path="res://desktop/minigame.tscn" id="4_mrnko"]
+[ext_resource type="Script" uid="uid://duspkodcoiisu" path="res://shop/next_button.gd" id="5_gy7ao"]
+
+[node name="Shop" type="Control" unique_id=1725560712]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=261100800]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_qsoi6")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1078309207]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 723.0
+offset_top = 423.0
+offset_right = 1121.2222
+offset_bottom = 647.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("4_3mibv")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="." unique_id=1471394089]
+layout_mode = 0
+offset_left = 802.0
+offset_top = 352.0
+offset_right = 926.0
+offset_bottom = 393.0
+text = "NEXT"
+script = ExtResource("5_gy7ao")
+minigame_scene = ExtResource("4_mrnko")
