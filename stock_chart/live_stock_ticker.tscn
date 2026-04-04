@@ -1,17 +1,13 @@
 [gd_scene format=3 uid="uid://5e1so7qveen1"]
 
-[ext_resource type="Shader" uid="uid://cta01cc33nerh" path="res://stock_chart/2d_gradient.gdshader" id="1_0e48y"]
-[ext_resource type="Script" uid="uid://b04apjaej1l6x" path="res://stock_chart/live_stock_ticker.gd" id="1_wtcfe"]
+[ext_resource type="Script" uid="uid://b04apjaej1l6x" path="res://stock_chart/live_stock_ticker.gd" id="1_604uj"]
+[ext_resource type="Shader" uid="uid://cta01cc33nerh" path="res://stock_chart/2d_gradient.gdshader" id="2_d2g6o"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0e48y"]
-shader = ExtResource("1_0e48y")
+shader = ExtResource("2_d2g6o")
 
-[node name="Node2D" type="Node2D" unique_id=1406283059]
-script = ExtResource("1_wtcfe")
-
-[node name="TickTimer" type="Timer" parent="." unique_id=2041112611]
-unique_name_in_owner = true
-autostart = true
+[node name="StockTicker" type="Container" unique_id=509920543]
+script = ExtResource("1_604uj")
 
 [node name="StockLine" type="Line2D" parent="." unique_id=2068513280]
 unique_name_in_owner = true
