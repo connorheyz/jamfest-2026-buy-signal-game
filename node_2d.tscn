@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://5e1so7qveen1"]
+
+[ext_resource type="Shader" uid="uid://cta01cc33nerh" path="res://2d_gradient.gdshader" id="1_0e48y"]
+[ext_resource type="Script" uid="uid://b04apjaej1l6x" path="res://drawing.gd" id="1_wtcfe"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0e48y"]
+shader = ExtResource("1_0e48y")
+
+[node name="Node2D" type="Node2D" unique_id=1406283059]
+script = ExtResource("1_wtcfe")
+
+[node name="TickTimer" type="Timer" parent="." unique_id=2041112611]
+unique_name_in_owner = true
+autostart = true
+
+[node name="StockLine" type="Line2D" parent="." unique_id=2068513280]
+unique_name_in_owner = true
+z_index = 1
+default_color = Color(0.97943777, 0.22944269, 0.34796292, 1)
+
+[node name="StockPolygon" type="Polygon2D" parent="." unique_id=1149414847]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_0e48y")
+color = Color(1, 0.3372549, 0.32156864, 1)
