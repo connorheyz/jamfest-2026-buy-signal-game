@@ -9,6 +9,7 @@ var rng: RandomNumberGenerator
 var cue_queue: Array[Cue]
 var dont_change: int ## number of ticks to wait until rerolling out again; set by active cue
 var volatility: float
+var background_volatility: float
 
 enum FunctionType {
 	RANDOM,
@@ -24,6 +25,7 @@ func _init() -> void:
 	cue_queue = []
 	dont_change = 0
 	volatility = 10.0
+	background_volatility = -10.0
 
 ## call on regular interval to check whether to leave the current function
 func reroll_out() -> void:
@@ -43,12 +45,14 @@ func reroll_out() -> void:
 				# move start_ticks forward
 				cue_queue[cue_index].start_ticks -= 1
 	
-	if dont_change > 0:
+	if dont_change > 1:
 		dont_change -= 1
+		if dont_change == 1:
+			volatility = background_volatility	
 		return
 				
 	var roll := rng.randf()
-	print_debug("reroll", roll)
+	# print_debug("reroll", roll)
 	if roll > function_gammas[current_function]:
 		return
 	reroll_in()
@@ -66,4 +70,4 @@ func queue_up(function: FunctionType, volatility: float, start_ticks: int, durat
 	cue_queue[-1].volatility = volatility
 	cue_queue[-1].start_ticks = start_ticks
 	cue_queue[-1].duration_ticks = duration_ticks 
-	cue_queue.sort_custom(func(x): x.start_ticks)
+	cue_queue.sort_custom(func(x, y): (x.start_ticks < y.start_ticks))
