@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://c0s8em4bheyxw"]
+
+[ext_resource type="Texture2D" uid="uid://bwcp3gc2fhxd6" path="res://test/BaseBG.png" id="1_o20wa"]
+[ext_resource type="Texture2D" uid="uid://dqqxtbnb1y38b" path="res://test/Hand.png" id="2_ew80y"]
+[ext_resource type="Script" uid="uid://dmpl64mi8vmxh" path="res://shop/total_money_label.gd" id="4_8u4xc"]
+[ext_resource type="Script" uid="uid://0g7uquq1g0wc" path="res://shop/stock_minigame_select.gd" id="4_g773h"]
+
+[node name="Desktop" type="Control" unique_id=1725560712]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=261100800]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_o20wa")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1078309207]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 723.0
+offset_top = 423.0
+offset_right = 1121.2222
+offset_bottom = 647.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_ew80y")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=744864017]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 18.0
+offset_right = 157.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Money: $500"
+script = ExtResource("4_8u4xc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=608560565]
+layout_mode = 0
+offset_left = 215.0
+offset_top = 70.0
+offset_right = 933.0
+offset_bottom = 400.0
+script = ExtResource("4_g773h")

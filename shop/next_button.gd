@@ -9,9 +9,9 @@ func _to_next_scene() -> void:
 	print(PlayerSaveState.current_day)
 	if PlayerSaveState.current_day % 7 < 5:
 		print("changing_scene")
-		get_tree().change_scene_to_file("res://desktop/minigame.tscn")
+		get_tree().change_scene_to_file("res://shop/select_stock.tscn")
 	else:
-		get_tree().change_scene_to_file("res://desktop/minigame.tscn")
+		get_tree().change_scene_to_file("res://shop/select_stock.tscn")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

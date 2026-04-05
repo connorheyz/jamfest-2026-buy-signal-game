@@ -29,7 +29,6 @@ func _ready() -> void:
 	origin_x = (position_x/size_x)
 	floor = origin_y + size_y/2
 		
-		
 func price_to_height(price: Price) -> float:
 	return origin_y - price.price * vertical_scaling
 	

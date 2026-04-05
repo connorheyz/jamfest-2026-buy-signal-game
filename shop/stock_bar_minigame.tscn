@@ -1,17 +1,14 @@
-[gd_scene format=3 uid="uid://dx4k86lq1e2by"]
+[gd_scene format=3 uid="uid://bvowax0xyj8vj"]
 
-[ext_resource type="Script" uid="uid://cthybg66vpiyq" path="res://shop/stock_bar.gd" id="1_lwoi5"]
-[ext_resource type="Resource" uid="uid://be2tc1ql2dpmi" path="res://price_engine/stock.tres" id="2_dt6tl"]
-[ext_resource type="Script" uid="uid://b04apjaej1l6x" path="res://stock_chart/live_stock_ticker.gd" id="3_f83bh"]
+[ext_resource type="Script" uid="uid://b5a05o2cbb3s2" path="res://shop/stock_bar_minigame.gd" id="1_r4uao"]
+[ext_resource type="Script" uid="uid://b04apjaej1l6x" path="res://stock_chart/live_stock_ticker.gd" id="3_mbvgj"]
 
-[node name="StockBar" type="HBoxContainer" unique_id=420853837 node_paths=PackedStringArray("stock_bar", "stock_ticker", "stock_price", "buy_ten", "buy_one")]
-script = ExtResource("1_lwoi5")
+[node name="StockBar" type="HBoxContainer" unique_id=420853837 node_paths=PackedStringArray("stock_bar", "stock_ticker", "stock_price", "trade_button")]
+script = ExtResource("1_r4uao")
 stock_bar = NodePath("StockBox/LiveView")
-stock = ExtResource("2_dt6tl")
 stock_ticker = NodePath("StockBox/Ticker")
 stock_price = NodePath("BuyContainer/Price")
-buy_ten = NodePath("BuyContainer/BuyButtons/BuyTen")
-buy_one = NodePath("BuyContainer/BuyButtons/BuyOne")
+trade_button = NodePath("BuyContainer/BuyButtons/Select")
 
 [node name="StockBox" type="VBoxContainer" parent="." unique_id=1934263757]
 layout_mode = 2
@@ -25,8 +22,8 @@ text = "VTI"
 [node name="LiveView" type="Container" parent="StockBox" unique_id=1216769931]
 layout_mode = 2
 size_flags_vertical = 3
-script = ExtResource("3_f83bh")
-horizontal_spacing = 0.65
+script = ExtResource("3_mbvgj")
+horizontal_spacing = 2.0
 vertical_scaling = 0.5
 follow_ticks = false
 
@@ -52,10 +49,6 @@ text = "$4.57"
 [node name="BuyButtons" type="HBoxContainer" parent="BuyContainer" unique_id=1302051727]
 layout_mode = 2
 
-[node name="BuyOne" type="Button" parent="BuyContainer/BuyButtons" unique_id=260066879]
+[node name="Select" type="Button" parent="BuyContainer/BuyButtons" unique_id=260066879]
 layout_mode = 2
-text = "Buy 1"
-
-[node name="BuyTen" type="Button" parent="BuyContainer/BuyButtons" unique_id=720708857]
-layout_mode = 2
-text = "Buy 10"
+text = "Day Trade"

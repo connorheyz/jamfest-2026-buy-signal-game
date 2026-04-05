@@ -7,18 +7,20 @@ var current_money: float = 1000
 
 var current_day: int = 0
 
-var holdings: = {}
+@export var holdings: = {}
+@export var portfolio: Array[Stock]
 
-var stock_prices: = {}
+@export var stock_prices: = {}
 
 var items: Array[SwagItem]
 
+var previous_day_prices:= {}
+
 var previous_day_close: float
+
+var current_stock: Stock
 
 @export var unlocked_items: Array[SwagItem]
 @export var unlocked_stocks: Array[Stock]
-
-func _ready() -> void:
-	stock_prices["VTI"] = 100;
 
 var holding: bool
