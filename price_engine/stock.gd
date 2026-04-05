@@ -12,6 +12,8 @@ var dont_change: int ## number of ticks to wait until rerolling out again; set b
 var volatility: float
 var background_volatility: float
 
+var ticker: String = "VTI"
+
 enum FunctionType {
 	RANDOM,
 	LINEAR,

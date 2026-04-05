@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bh3kcish21fcp"]
+
+[ext_resource type="Texture2D" uid="uid://cgyixomc34a5i" path="res://icon.svg" id="1_rchi8"]
+[ext_resource type="Script" uid="uid://dkfaii6jnoro0" path="res://shop/shop_item.gd" id="1_x1owf"]
+
+[node name="ShopItem" type="HBoxContainer" unique_id=1619776993 node_paths=PackedStringArray("buy_button", "price_label", "item_label", "item_icon")]
+script = ExtResource("1_x1owf")
+buy_button = NodePath("BuyContainer/BuyButton")
+price_label = NodePath("BuyContainer/PriceLabel")
+item_label = NodePath("ItemLabel")
+item_icon = NodePath("ItemIcon")
+
+[node name="ItemIcon" type="TextureRect" parent="." unique_id=2002947436]
+layout_mode = 2
+texture = ExtResource("1_rchi8")
+expand_mode = 3
+
+[node name="ItemLabel" type="Label" parent="." unique_id=422552996]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Item 1"
+
+[node name="BuyContainer" type="VBoxContainer" parent="." unique_id=337616089]
+layout_mode = 2
+
+[node name="PriceLabel" type="Label" parent="BuyContainer" unique_id=1589576568]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "$100"
+
+[node name="BuyButton" type="Button" parent="BuyContainer" unique_id=547353989]
+layout_mode = 2
+text = "Buy"

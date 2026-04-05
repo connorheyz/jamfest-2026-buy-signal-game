@@ -1,0 +1,170 @@
+[gd_scene format=3 uid="uid://cvug0kyolx16a"]
+
+[ext_resource type="Texture2D" uid="uid://bwcp3gc2fhxd6" path="res://test/BaseBG.png" id="3_qsoi6"]
+[ext_resource type="Texture2D" uid="uid://dqqxtbnb1y38b" path="res://test/Hand.png" id="4_3mibv"]
+[ext_resource type="Script" uid="uid://dmpl64mi8vmxh" path="res://shop/total_money_label.gd" id="4_mrnko"]
+[ext_resource type="Texture2D" uid="uid://o751xv776aef" path="res://test/Window.png" id="5_2wf2a"]
+[ext_resource type="Script" uid="uid://duspkodcoiisu" path="res://shop/next_button.gd" id="5_gy7ao"]
+[ext_resource type="Script" uid="uid://ded45xebtubf3" path="res://shop/shop.gd" id="6_ljlg5"]
+[ext_resource type="Script" uid="uid://db52rps2mfkon" path="res://shop/item.gd" id="7_bv5vx"]
+[ext_resource type="Resource" uid="uid://c3bd0pq4i5i4m" path="res://items/your_name_mug.tres" id="8_mmyc1"]
+[ext_resource type="Script" uid="uid://cthybg66vpiyq" path="res://shop/stock_bar.gd" id="9_bv5vx"]
+[ext_resource type="Script" uid="uid://b04apjaej1l6x" path="res://stock_chart/live_stock_ticker.gd" id="10_mmyc1"]
+[ext_resource type="Resource" uid="uid://be2tc1ql2dpmi" path="res://price_engine/stock.tres" id="10_orod7"]
+
+[node name="Shop" type="Control" unique_id=1725560712]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=261100800]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("3_qsoi6")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1078309207]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 723.0
+offset_top = 423.0
+offset_right = 1121.2222
+offset_bottom = 647.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("4_3mibv")
+expand_mode = 1
+
+[node name="Button" type="Button" parent="." unique_id=1471394089]
+layout_mode = 0
+offset_left = 212.0
+offset_top = 472.0
+offset_right = 336.0
+offset_bottom = 513.0
+text = "NEXT"
+script = ExtResource("5_gy7ao")
+
+[node name="Label" type="Label" parent="." unique_id=744864017]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 18.0
+offset_right = 157.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Money: $500"
+script = ExtResource("4_mrnko")
+
+[node name="Shop" type="NinePatchRect" parent="." unique_id=776684479]
+layout_mode = 0
+offset_left = 224.0
+offset_top = 77.0
+offset_right = 666.0
+offset_bottom = 350.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("5_2wf2a")
+patch_margin_left = 6
+patch_margin_top = 22
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="ShopContainer" type="VBoxContainer" parent="Shop" unique_id=1839386935]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 29.0
+offset_right = 430.0
+offset_bottom = 260.0
+script = ExtResource("6_ljlg5")
+items = Array[ExtResource("7_bv5vx")]([ExtResource("8_mmyc1")])
+
+[node name="StockShop" type="NinePatchRect" parent="." unique_id=637435342]
+layout_mode = 0
+offset_left = 493.0
+offset_top = 127.0
+offset_right = 935.0
+offset_bottom = 400.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("5_2wf2a")
+patch_margin_left = 6
+patch_margin_top = 22
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StockShop" unique_id=1427362734]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 28.0
+offset_right = 430.0
+offset_bottom = 260.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StockShop/VBoxContainer" unique_id=1991706334 node_paths=PackedStringArray("stock_bar")]
+layout_mode = 2
+script = ExtResource("9_bv5vx")
+stock_bar = NodePath("VBoxContainer/ColorRect")
+stock = ExtResource("10_orod7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StockShop/VBoxContainer/HBoxContainer" unique_id=1443044785]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="StockShop/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=33306007]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "VTI"
+
+[node name="ColorRect" type="Container" parent="StockShop/VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1328089774]
+layout_mode = 2
+size_flags_vertical = 3
+script = ExtResource("10_mmyc1")
+horizontal_spacing = 10.0
+vertical_scaling = 1.0
+follow_ticks = false
+
+[node name="StockLine" type="Line2D" parent="StockShop/VBoxContainer/HBoxContainer/VBoxContainer/ColorRect" unique_id=230191700]
+unique_name_in_owner = true
+z_index = 5
+width = 5.0
+default_color = Color(1, 0.29656258, 0.37273479, 1)
+
+[node name="StockPolygon" type="Polygon2D" parent="StockShop/VBoxContainer/HBoxContainer/VBoxContainer/ColorRect" unique_id=1204218646]
+unique_name_in_owner = true
+z_index = 5
+color = Color(0.9991538, 0.59077847, 0.5653776, 1)
+
+[node name="Label" type="Label" parent="StockShop/VBoxContainer/HBoxContainer/VBoxContainer/ColorRect" unique_id=746000685]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Hello"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="StockShop/VBoxContainer/HBoxContainer" unique_id=1219066055]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="StockShop/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1392530721]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "$4.57"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StockShop/VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1181679823]
+layout_mode = 2
+
+[node name="Button" type="Button" parent="StockShop/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=870623103]
+layout_mode = 2
+text = "Buy 1"
+
+[node name="Button2" type="Button" parent="StockShop/VBoxContainer/HBoxContainer/VBoxContainer2/HBoxContainer" unique_id=1609188905]
+layout_mode = 2
+text = "Buy 10"
