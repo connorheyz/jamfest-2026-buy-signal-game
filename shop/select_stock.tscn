@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bwcp3gc2fhxd6" path="res://test/BaseBG.png" id="1_o20wa"]
 [ext_resource type="Texture2D" uid="uid://dqqxtbnb1y38b" path="res://test/Hand.png" id="2_ew80y"]
-[ext_resource type="Script" path="res://shop/total_money_label.gd" id="4_8u4xc"]
+[ext_resource type="Script" uid="uid://dmpl64mi8vmxh" path="res://shop/total_money_label.gd" id="4_8u4xc"]
 [ext_resource type="Script" uid="uid://0g7uquq1g0wc" path="res://shop/stock_minigame_select.gd" id="4_g773h"]
 
 [node name="Desktop" type="Control" unique_id=1725560712]

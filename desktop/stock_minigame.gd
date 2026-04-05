@@ -72,6 +72,8 @@ func _input(event):
 				PlayerSaveState.current_money -= bought_price
 				set_holding(true)
 				%RhythmScene.bought_or_sold()
+				$SFXPlayer.stream = load("res://test/kaching1.mp3")
+				$SFXPlayer.play()
 	elif event.is_action_pressed("sell"):
 		if get_holding() and not day_closed:
 			profit += stock_ticker.get_latest_price().price - bought_price
@@ -79,6 +81,8 @@ func _input(event):
 			update_profit_label()
 			set_holding(false)
 			%RhythmScene.bought_or_sold()
+			$SFXPlayer.stream = load("res://test/kaching1.mp3")
+			$SFXPlayer.play()
 			
 func update_profit_label():
 	%ProfitLabel.text = "Day Change: $" + str(profit)
