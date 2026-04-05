@@ -11,14 +11,21 @@ var bought_price: float = 0
 
 var day_closed: bool = false
 
+var owned_at_open: int
+
+var stock: Stock
+
 var profit := 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	PlayerSaveState.previous_day_prices = {}
 	%TickTimer.timeout.connect(_on_tick_timeout)
-	%TickerLabel.text = "VTI"
 	%HalfHourTimer.timeout.connect(_advance_time)
 	%Clock.update_time_label(current_time)
-	stock_ticker.append_price(Price.new(PlayerSaveState.previous_day_close, 0))
+	stock = PlayerSaveState.current_stock
+	owned_at_open = PlayerSaveState.holdings[stock.ticker]
+	%TickerLabel.text = stock.ticker
+	stock_ticker.append_price(Price.new(PlayerSaveState.stock_prices[stock.ticker], 0))
 
 
 func _advance_time() -> void:
@@ -35,38 +42,47 @@ func end_day() -> void:
 	%HalfHourTimer.stop()
 	day_closed = true
 	var day_save: GameState = GameState.new(profit)
+	PlayerSaveState.previous_day_prices[stock.ticker] = []
+	for price in stock_ticker.prices:
+		PlayerSaveState.previous_day_prices[stock.ticker].append(price.price)
 	PlayerSaveState.current_money += profit
+	print(stock_ticker.get_latest_price().price)
+	PlayerSaveState.stock_prices[stock.ticker] = stock_ticker.get_latest_price().price
 	PlayerSaveState.game_states.append(day_save)
 	get_tree().change_scene_to_packed(results_screen)
 	
 func get_holding() -> bool:
-	return PlayerSaveState.holding
+	return stock.ticker in PlayerSaveState.holdings and PlayerSaveState.holdings[stock.ticker] != 0
 	
 func set_holding(value: bool) -> void:
-	PlayerSaveState.holding = value
-	
+	if value:
+		PlayerSaveState.holdings[stock.ticker] = owned_at_open
+	else:
+		PlayerSaveState.holdings[stock.ticker] = 0
 	
 func _input(event):
 	if event.is_action_pressed("buy"):
 		if not get_holding() and not day_closed:
-			bought_price = stock_ticker.get_latest_price().price
-			set_holding(true)
+			var temp_bought_price = stock_ticker.get_latest_price().price
+			if PlayerSaveState.current_money > temp_bought_price * owned_at_open:
+				bought_price = temp_bought_price * owned_at_open
+				PlayerSaveState.current_money -= bought_price
+				set_holding(true)
 	elif event.is_action_pressed("sell"):
 		if get_holding() and not day_closed:
 			profit += stock_ticker.get_latest_price().price - bought_price
+			PlayerSaveState.current_money += PlayerSaveState.holdings[stock.ticker] * stock_ticker.get_latest_price().price
 			update_profit_label()
-			set_holding(true)
+			set_holding(false)
 			
 func update_profit_label():
 	%ProfitLabel.text = "Day Change: $" + str(profit)
 
 func _on_tick_timeout() -> void:
+	print(stock_ticker.get_latest_price().price)
 	var diff: float = %StockScene.do_tick()
-	if stock_ticker.prices.size() < 1:
-		stock_ticker.append_price(Price.new(diff, current_tick))
-		bought_price = diff
-	else:
-		stock_ticker.append_price(Price.new(stock_ticker.prices[-1].price + diff, current_tick))
+	var new_price = max(0, stock_ticker.prices[-1].price + diff)
+	stock_ticker.append_price(Price.new(new_price, current_tick))
 	var latest_price: Price = stock_ticker.get_latest_price()
 	
 	if latest_price.price > bought_price:
