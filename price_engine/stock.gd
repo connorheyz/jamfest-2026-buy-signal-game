@@ -42,7 +42,7 @@ func reroll_out() -> void:
 				dont_change = cue.duration_ticks
 				cue_queue.remove_at(0)
 				current_function = cue.function
-				volatility = cue.volatility
+				volatility = abs(background_volatility) * cue.volatility
 				dont_change = cue.duration_ticks
 			else:
 				# move start_ticks forward

@@ -9,8 +9,8 @@
 [ext_resource type="Script" uid="uid://dbwvsvfhxscud" path="res://desktop/clock.gd" id="7_dipoy"]
 [ext_resource type="PackedScene" uid="uid://cj0ka5piaau77" path="res://price_engine/stock_scene.tscn" id="8_mgcpr"]
 [ext_resource type="PackedScene" uid="uid://b4l86xnah0j5g" path="res://queue_up_menu/queue_up_menu.tscn" id="9_sd31f"]
-[ext_resource type="PackedScene" uid="uid://d2qltat0v82t8" path="res://rhythm/rhythm_scene.tscn" id="10_qmb8p"]
-[ext_resource type="PackedScene" uid="uid://b2fukhhxr3gje" path="res://shop/money_label.tscn" id="10_qmb8p"]
+[ext_resource type="PackedScene" path="res://shop/money_label.tscn" id="10_qmb8p"]
+[ext_resource type="PackedScene" uid="uid://d2qltat0v82t8" path="res://rhythm/rhythm_scene.tscn" id="11_07u45"]
 
 [node name="Desktop" type="Control" unique_id=1725560712 node_paths=PackedStringArray("stock_ticker")]
 layout_mode = 3
@@ -98,6 +98,7 @@ script = ExtResource("6_7qdim")
 
 [node name="HalfHourTimer" type="Timer" parent="." unique_id=421547147]
 unique_name_in_owner = true
+wait_time = 5.0
 autostart = true
 
 [node name="Clock" type="Label" parent="." unique_id=247581126]
@@ -117,10 +118,14 @@ unique_name_in_owner = true
 [node name="QueueUpMenu" parent="." unique_id=1808077402 instance=ExtResource("9_sd31f")]
 visible = false
 
-[node name="RhythmScene" parent="." unique_id=2051092556 instance=ExtResource("10_qmb8p")]
-unique_name_in_owner = true
 [node name="MoneyLabel" parent="." unique_id=1319991699 instance=ExtResource("10_qmb8p")]
 layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 134.0
+offset_bottom = 52.0
+
+[node name="RhythmScene" parent="." unique_id=2051092556 instance=ExtResource("11_07u45")]
+unique_name_in_owner = true
 
 [connection signal="button_queue_up_pressed" from="QueueUpMenu" to="." method="_on_queue_up_menu_button_queue_up_pressed"]
-[connection signal="enqueue_cue" from="RhythmScene" to="." method="_on_rhythm_scene_enqueue_cue"]

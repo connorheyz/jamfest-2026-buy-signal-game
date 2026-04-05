@@ -11,6 +11,7 @@ var next_critical: int
 var thing_to_look_for: bool ## true buy, false sell
 var action_taken: bool
 var is_critical_now: bool
+var next_thing_to_add: bool ## true buy, false sell
 
 func _init() -> void:
 	rhythm_queue = []
@@ -19,6 +20,7 @@ func _init() -> void:
 	next_critical = 0
 	action_taken = false
 	is_critical_now = false
+	next_thing_to_add = false
 
 func do_tick() -> void:
 	if len(rhythm_queue) > 0:
@@ -63,26 +65,51 @@ func do_tick() -> void:
 		return        
 
 	if rng.randf() < 0.2 and len(rhythm_queue) == 0:
-		rhythm_queue.append(
-			RhythmEvent.new(
-				4, 
-				6, 
-				7, 
-				Cue.new(
-					Stock.FunctionType.LINEAR,
-					-50,
-					3,
-					3,
-				),
-				Cue.new(
-					Stock.FunctionType.LINEAR,
-					100,
-					11,
-					7,                                                            
-				),
-				true
+		if next_thing_to_add:
+			rhythm_queue.append(
+				RhythmEvent.new(
+					4, 
+					4, 
+					7, 
+					Cue.new(
+						Stock.FunctionType.LINEAR,
+						2,
+						3,
+						3,
+					),
+					Cue.new(
+						Stock.FunctionType.LINEAR,
+						-5,
+						11,
+						7,                                                            
+					),
+					true
+				)
 			)
-		)
+			
+		else:
+			rhythm_queue.append(
+				RhythmEvent.new(
+					4, 
+					4, 
+					7, 
+					Cue.new(
+						Stock.FunctionType.LINEAR,
+						-5,
+						3,
+						3,
+					),
+					Cue.new(
+						Stock.FunctionType.LINEAR,
+						10,
+						11,
+						7,                                                            
+					),
+					true
+				)
+			)
+		
+		next_thing_to_add = !next_thing_to_add
 
 func bought_or_sold():
 	if is_critical_now:
