@@ -68,9 +68,5 @@ func get_next_diff() -> float:
 	return functions[current_function].get_next_diff(volatility)
 
 func queue_up(function: FunctionType, volatility: float, start_ticks: int, duration_ticks: int) -> void:
-	cue_queue.append(Cue.new())
-	cue_queue[-1].function = function
-	cue_queue[-1].volatility = volatility
-	cue_queue[-1].start_ticks = start_ticks
-	cue_queue[-1].duration_ticks = duration_ticks 
+	cue_queue.append(Cue.new(function, volatility, start_ticks, duration_ticks))
 	cue_queue.sort_custom(func(x, y): (x.start_ticks < y.start_ticks))

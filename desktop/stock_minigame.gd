@@ -51,16 +51,19 @@ func _input(event):
 		if not get_holding() and not day_closed:
 			bought_price = stock_ticker.get_latest_price().price
 			set_holding(true)
+			%RhythmScene.bought_or_sold()
 	elif event.is_action_pressed("sell"):
 		if get_holding() and not day_closed:
 			profit += stock_ticker.get_latest_price().price - bought_price
 			update_profit_label()
 			set_holding(true)
+			%RhythmScene.bought_or_sold()
 			
 func update_profit_label():
 	%ProfitLabel.text = "Day Change: $" + str(profit)
 
 func _on_tick_timeout() -> void:
+	%RhythmScene.do_tick()
 	var diff: float = %StockScene.do_tick()
 	if stock_ticker.prices.size() < 1:
 		stock_ticker.append_price(Price.new(diff, current_tick))
@@ -79,3 +82,7 @@ func _on_tick_timeout() -> void:
 
 func _on_queue_up_menu_button_queue_up_pressed(type: Stock.FunctionType, p_volatility: float, start_ticks: int, duration_ticks: int) -> void:
 	%StockScene.queue_up(type, p_volatility, start_ticks, duration_ticks)
+
+
+func _on_rhythm_scene_enqueue_cue(cue: Cue) -> void:
+	%StockScene.queue_up(cue.function, cue.volatility, cue.start_ticks, cue.duration_ticks)
