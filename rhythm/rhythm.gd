@@ -73,13 +73,13 @@ func do_tick() -> void:
 					7, 
 					Cue.new(
 						Stock.FunctionType.LINEAR,
-						5,
+						-5,
 						3,
 						3,
 					),
 					Cue.new(
 						Stock.FunctionType.LINEAR,
-						-5,
+						5,
 						11,
 						7,                                                            
 					),
@@ -95,13 +95,13 @@ func do_tick() -> void:
 					7, 
 					Cue.new(
 						Stock.FunctionType.LINEAR,
-						-5,
+						5,
 						3,
 						3,
 					),
 					Cue.new(
 						Stock.FunctionType.LINEAR,
-						5,
+						-5,
 						11,
 						7,                                                            
 					),
