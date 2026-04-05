@@ -1,9 +1,10 @@
 extends Resource
 class_name Stock
 
+@export var function_weights: Array[float] ## weight of entering function
+@export var function_gammas: Array[float] ## chance of exiting function on every reroll(0 < k < 1)
+
 var functions: Array[StockFunction]
-var function_weights: Array[float] ## weight of entering function
-var function_gammas: Array[float] ## chance of exiting function on every reroll(0 < k < 1)
 var current_function: int
 var rng: RandomNumberGenerator
 var cue_queue: Array[Cue]
