@@ -58,6 +58,7 @@ offset_bottom = 406.0
 
 [node name="TickTimer" type="Timer" parent="." unique_id=516875514]
 unique_name_in_owner = true
+wait_time = 0.4
 autostart = true
 
 [node name="ProfitLabel" type="Label" parent="." unique_id=1638952226]
@@ -123,6 +124,9 @@ offset_bottom = 52.0
 
 [node name="RhythmScene" parent="." unique_id=2051092556 instance=ExtResource("11_07u45")]
 unique_name_in_owner = true
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1756740756]
+volume_db = -12.0
 
 [connection signal="button_queue_up_pressed" from="QueueUpMenu" to="." method="_on_queue_up_menu_button_queue_up_pressed"]
 [connection signal="enqueue_cue" from="RhythmScene" to="." method="_on_rhythm_scene_enqueue_cue"]

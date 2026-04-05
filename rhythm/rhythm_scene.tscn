@@ -5,4 +5,5 @@
 [node name="RhythmScene" type="Node2D" unique_id=2051092556]
 script = ExtResource("1_spmn5")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=2066035708]
+[node name="CuePlayer" type="AudioStreamPlayer2D" parent="." unique_id=2066035708]
+volume_db = 3.0

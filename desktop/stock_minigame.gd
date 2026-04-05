@@ -26,6 +26,8 @@ func _ready() -> void:
 	owned_at_open = PlayerSaveState.holdings[stock.ticker]
 	%TickerLabel.text = stock.ticker
 	stock_ticker.append_price(Price.new(PlayerSaveState.stock_prices[stock.ticker], 0))
+	$MusicPlayer.stream = load("res://test/rhythmgame.mp3")
+	$MusicPlayer.play()
 
 
 func _advance_time() -> void:
@@ -49,7 +51,8 @@ func end_day() -> void:
 	print(stock_ticker.get_latest_price().price)
 	PlayerSaveState.stock_prices[stock.ticker] = stock_ticker.get_latest_price().price
 	PlayerSaveState.game_states.append(day_save)
-	get_tree().change_scene_to_packed(results_screen)
+	get_tree().change_scene_to_packed(results_screen)	
+	$MusicPlayer.stop()
 	
 func get_holding() -> bool:
 	return stock.ticker in PlayerSaveState.holdings and PlayerSaveState.holdings[stock.ticker] != 0

@@ -25,10 +25,7 @@ func _on_enqueue_cue(cue: Cue):
 
 func bought_or_sold():
 	rhythm.bought_or_sold()
-
 func _on_rhythm_happening(start_ticks: int) -> void:
-	var voices = DisplayServer.tts_get_voices_for_language("en")
-	var voice_id = voices[0]
 	
-	# Say "Hello, world!".
-	DisplayServer.tts_speak("Buy or sell in %d ticks" % start_ticks, voice_id)
+	$CuePlayer.stream = load("res://test/buy.mp3")
+	$CuePlayer.play()
