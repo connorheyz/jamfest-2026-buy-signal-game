@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Stock" format=3 uid="uid://crkqedhg015y7"]
+
+[ext_resource type="Script" uid="uid://bdxminocqv6wr" path="res://price_engine/stock_function.gd" id="1_plndg"]
+[ext_resource type="Resource" uid="uid://bfavt8ys1gnej" path="res://price_engine/stock_function.tres" id="2_6c5os"]
+[ext_resource type="Script" uid="uid://th2tlyhy2w0t" path="res://price_engine/stock.gd" id="2_xbrey"]
+[ext_resource type="Resource" uid="uid://q360mld0ddcr" path="res://price_engine/linear.tres" id="3_00ycl"]
+
+[resource]
+script = ExtResource("2_xbrey")
+function_weights = Array[float]([1.0, 1.0])
+function_gammas = Array[float]([0.1, 0.1])
+functions = Array[ExtResource("1_plndg")]([ExtResource("2_6c5os"), ExtResource("3_00ycl")])
+background_volatility = 3.0
+ticker = "MSFT"
+metadata/_custom_type_script = "uid://th2tlyhy2w0t"

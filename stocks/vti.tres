@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Stock" format=3 uid="uid://pn0vc24o0ydt"]
+
+[ext_resource type="Script" uid="uid://bdxminocqv6wr" path="res://price_engine/stock_function.gd" id="1_1tjmn"]
+[ext_resource type="Script" uid="uid://th2tlyhy2w0t" path="res://price_engine/stock.gd" id="2_txm7j"]
+[ext_resource type="Resource" uid="uid://q360mld0ddcr" path="res://price_engine/linear.tres" id="2_ubfs6"]
+
+[resource]
+script = ExtResource("2_txm7j")
+function_weights = Array[float]([1.0])
+function_gammas = Array[float]([0.1])
+functions = Array[ExtResource("1_1tjmn")]([ExtResource("2_ubfs6")])
+background_volatility = 1.0
+ticker = "VTI"
+metadata/_custom_type_script = "uid://th2tlyhy2w0t"

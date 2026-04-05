@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Stock" format=3 uid="uid://b72uskicclatl"]
+
+[ext_resource type="Script" uid="uid://bdxminocqv6wr" path="res://price_engine/stock_function.gd" id="1_m7rmw"]
+[ext_resource type="Resource" uid="uid://q360mld0ddcr" path="res://price_engine/linear.tres" id="2_5tcya"]
+[ext_resource type="Script" uid="uid://th2tlyhy2w0t" path="res://price_engine/stock.gd" id="2_j4tte"]
+[ext_resource type="Resource" uid="uid://bfavt8ys1gnej" path="res://price_engine/stock_function.tres" id="3_p48wk"]
+
+[resource]
+script = ExtResource("2_j4tte")
+function_weights = Array[float]([1.0, 9.0])
+function_gammas = Array[float]([0.2, 0.2])
+functions = Array[ExtResource("1_m7rmw")]([ExtResource("2_5tcya"), ExtResource("3_p48wk")])
+background_volatility = 5.0
+ticker = "BTC"
+metadata/_custom_type_script = "uid://th2tlyhy2w0t"

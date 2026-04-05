@@ -14,11 +14,15 @@ func _ready() -> void:
 		for i in range(len(PlayerSaveState.previous_day_prices[stock.ticker])):
 			stock_bar.append_price(Price.new(PlayerSaveState.previous_day_prices[stock.ticker][i] - PlayerSaveState.previous_day_prices[stock.ticker][0], i))
 	else:
+		print("stock:" + stock.ticker)
+		print(stock.volatility)
+		print(stock.background_volatility)
 		var open_price = PlayerSaveState.stock_prices[stock.ticker]
 		PlayerSaveState.previous_day_prices[stock.ticker] = []
 		for i in range(300):
 			stock_bar.append_price(Price.new(price, i))
 			var diff = stock.get_next_diff()
+			print(diff)
 			price = max(0, price + diff)
 			open_price = max(0, diff + open_price)
 			PlayerSaveState.previous_day_prices[stock.ticker].append(open_price)

@@ -21,4 +21,3 @@ func do_tick() -> float:
 
 func queue_up(function_type: Stock.FunctionType, p_volatility: float, start_ticks: int, duration_ticks: int) -> void:
 	stock.queue_up(function_type, p_volatility, start_ticks, duration_ticks)
-

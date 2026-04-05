@@ -1,13 +1,11 @@
 [gd_scene format=3 uid="uid://dx4k86lq1e2by"]
 
 [ext_resource type="Script" uid="uid://cthybg66vpiyq" path="res://shop/stock_bar.gd" id="1_lwoi5"]
-[ext_resource type="Resource" uid="uid://be2tc1ql2dpmi" path="res://price_engine/stock.tres" id="2_dt6tl"]
 [ext_resource type="Script" uid="uid://b04apjaej1l6x" path="res://stock_chart/live_stock_ticker.gd" id="3_f83bh"]
 
 [node name="StockBar" type="HBoxContainer" unique_id=420853837 node_paths=PackedStringArray("stock_bar", "stock_ticker", "stock_price", "buy_ten", "buy_one")]
 script = ExtResource("1_lwoi5")
 stock_bar = NodePath("StockBox/LiveView")
-stock = ExtResource("2_dt6tl")
 stock_ticker = NodePath("StockBox/Ticker")
 stock_price = NodePath("BuyContainer/Price")
 buy_ten = NodePath("BuyContainer/BuyButtons/BuyTen")

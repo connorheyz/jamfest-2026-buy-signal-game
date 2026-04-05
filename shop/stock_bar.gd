@@ -37,6 +37,8 @@ func _attempt_buy_ten() -> void:
 			PlayerSaveState.holdings[stock.ticker] += 10
 		else:
 			PlayerSaveState.holdings[stock.ticker] = 10
+		if stock not in PlayerSaveState.portfolio:
+			PlayerSaveState.portfolio.append(stock)
 		PlayerSaveState.current_money -= PlayerSaveState.stock_prices[stock.ticker] * 10
 	
 func _attempt_buy_one() -> void:
@@ -45,4 +47,6 @@ func _attempt_buy_one() -> void:
 			PlayerSaveState.holdings[stock.ticker] += 1
 		else:
 			PlayerSaveState.holdings[stock.ticker] = 1
+		if stock not in PlayerSaveState.portfolio:
+			PlayerSaveState.portfolio.append(stock)
 		PlayerSaveState.current_money -= PlayerSaveState.stock_prices[stock.ticker]

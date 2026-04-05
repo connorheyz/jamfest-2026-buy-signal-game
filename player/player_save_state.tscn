@@ -2,15 +2,17 @@
 
 [ext_resource type="Script" uid="uid://1aaubp8gjpku" path="res://player/player_save_state.gd" id="1_qm5h6"]
 [ext_resource type="Script" uid="uid://th2tlyhy2w0t" path="res://price_engine/stock.gd" id="2_leno1"]
-[ext_resource type="Resource" uid="uid://be2tc1ql2dpmi" path="res://price_engine/stock.tres" id="3_31qgy"]
+[ext_resource type="Resource" uid="uid://pn0vc24o0ydt" path="res://stocks/vti.tres" id="3_leno1"]
 
 [node name="PlayerSave" type="Node" unique_id=734957080]
 script = ExtResource("1_qm5h6")
 holdings = {
 "VTI": 1
 }
-portfolio = Array[ExtResource("2_leno1")]([ExtResource("3_31qgy")])
+portfolio = Array[ExtResource("2_leno1")]([ExtResource("3_leno1")])
 stock_prices = {
+"BTC": 70000.0,
+"MSFT": 480.0,
 "VTI": 50.0
 }
-unlocked_stocks = Array[ExtResource("2_leno1")]([ExtResource("3_31qgy")])
+unlocked_stocks = Array[ExtResource("2_leno1")]([ExtResource("3_leno1")])

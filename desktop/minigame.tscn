@@ -7,9 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://5e1so7qveen1" path="res://stock_chart/live_stock_ticker.tscn" id="5_07u45"]
 [ext_resource type="Script" uid="uid://bkofdjp51nu8g" path="res://desktop/day_label.gd" id="6_7qdim"]
 [ext_resource type="Script" uid="uid://dbwvsvfhxscud" path="res://desktop/clock.gd" id="7_dipoy"]
-[ext_resource type="PackedScene" uid="uid://cj0ka5piaau77" path="res://price_engine/stock_scene.tscn" id="8_mgcpr"]
 [ext_resource type="PackedScene" uid="uid://b4l86xnah0j5g" path="res://queue_up_menu/queue_up_menu.tscn" id="9_sd31f"]
-[ext_resource type="PackedScene" path="res://shop/money_label.tscn" id="10_qmb8p"]
+[ext_resource type="PackedScene" uid="uid://b2fukhhxr3gje" path="res://shop/money_label.tscn" id="10_qmb8p"]
 [ext_resource type="PackedScene" uid="uid://d2qltat0v82t8" path="res://rhythm/rhythm_scene.tscn" id="11_07u45"]
 
 [node name="Desktop" type="Control" unique_id=1725560712 node_paths=PackedStringArray("stock_ticker")]
@@ -111,9 +110,6 @@ offset_bottom = 392.0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "9:30"
 script = ExtResource("7_dipoy")
-
-[node name="StockScene" parent="." unique_id=838909554 instance=ExtResource("8_mgcpr")]
-unique_name_in_owner = true
 
 [node name="QueueUpMenu" parent="." unique_id=1808077402 instance=ExtResource("9_sd31f")]
 visible = false
