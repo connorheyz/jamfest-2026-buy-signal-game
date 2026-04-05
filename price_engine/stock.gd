@@ -10,7 +10,7 @@ class_name Stock
 var rng: RandomNumberGenerator
 var cue_queue: Array[Cue]
 var dont_change: int ## number of ticks to wait until rerolling out again; set by active cue
-var volatility: float
+@export var volatility: float
 @export var background_volatility: float
 
 @export var ticker: String
@@ -21,18 +21,19 @@ enum FunctionType {
 }
 
 func _init() -> void:
-	functions = [StockFunction.new(), Linear.new()]
-	function_weights = [6, 3]
-	function_gammas = [0.3, 0.2]
+	# functions = [StockFunction.new(), Linear.new()]
+	# function_weights = [6, 3]
+	# function_gammas = [0.3, 0.2]
 	current_function = 0
 	rng = RandomNumberGenerator.new()
 	cue_queue = []
 	dont_change = 0
-	volatility = 10.0
-	background_volatility = -10.0
+	# volatility = 10.0
+	# background_volatility = -10.0
 
 ## call on regular interval to check whether to leave the current function
 func reroll_out() -> void:
+	print_debug("volatility ", volatility, " bgv ", background_volatility)
 	if len(cue_queue) > 0:
 		print_debug("queue", cue_queue)
 		for cue_index in range(len(cue_queue) - 1, -1, -1):
@@ -68,6 +69,6 @@ func reroll_in() -> void:
 func get_next_diff() -> float:
 	return functions[current_function].get_next_diff(volatility)
 
-func queue_up(function: FunctionType, volatility: float, start_ticks: int, duration_ticks: int) -> void:
-	cue_queue.append(Cue.new(function, volatility, start_ticks, duration_ticks))
+func queue_up(function: FunctionType, p_volatility: float, start_ticks: int, duration_ticks: int) -> void:
+	cue_queue.append(Cue.new(function, p_volatility, start_ticks, duration_ticks))
 	cue_queue.sort_custom(func(x, y): (x.start_ticks < y.start_ticks))
