@@ -2,8 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://bwcp3gc2fhxd6" path="res://test/BaseBG.png" id="3_qsoi6"]
 [ext_resource type="Texture2D" uid="uid://dqqxtbnb1y38b" path="res://test/Hand.png" id="4_3mibv"]
-[ext_resource type="PackedScene" uid="uid://bh0n6ewvlmvep" path="res://desktop/minigame.tscn" id="4_mrnko"]
+[ext_resource type="Script" uid="uid://dmpl64mi8vmxh" path="res://shop/total_money_label.gd" id="4_mrnko"]
+[ext_resource type="Texture2D" uid="uid://o751xv776aef" path="res://test/Window.png" id="5_2wf2a"]
 [ext_resource type="Script" uid="uid://duspkodcoiisu" path="res://shop/next_button.gd" id="5_gy7ao"]
+[ext_resource type="Script" uid="uid://ded45xebtubf3" path="res://shop/item_shop.gd" id="7_orod7"]
+[ext_resource type="Script" uid="uid://cjhl6tca3aqc2" path="res://shop/stock_container.gd" id="9_bv5vx"]
+[ext_resource type="Script" uid="uid://th2tlyhy2w0t" path="res://price_engine/stock.gd" id="10_mmyc1"]
+[ext_resource type="Resource" uid="uid://be2tc1ql2dpmi" path="res://price_engine/stock.tres" id="10_orod7"]
 
 [node name="Shop" type="Control" unique_id=1725560712]
 layout_mode = 3
@@ -41,10 +46,66 @@ expand_mode = 1
 
 [node name="Button" type="Button" parent="." unique_id=1471394089]
 layout_mode = 0
-offset_left = 802.0
-offset_top = 352.0
-offset_right = 926.0
-offset_bottom = 393.0
+offset_left = 212.0
+offset_top = 472.0
+offset_right = 336.0
+offset_bottom = 513.0
 text = "NEXT"
 script = ExtResource("5_gy7ao")
-minigame_scene = ExtResource("4_mrnko")
+
+[node name="Label" type="Label" parent="." unique_id=744864017]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 18.0
+offset_right = 157.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Money: $500"
+script = ExtResource("4_mrnko")
+
+[node name="Shop" type="NinePatchRect" parent="." unique_id=776684479]
+z_index = 3
+layout_mode = 0
+offset_left = 224.0
+offset_top = 77.0
+offset_right = 589.0
+offset_bottom = 350.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("5_2wf2a")
+patch_margin_left = 6
+patch_margin_top = 22
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="ShopContainer" type="VBoxContainer" parent="Shop" unique_id=1839386935]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 29.0
+offset_right = 352.0
+offset_bottom = 260.0
+script = ExtResource("7_orod7")
+
+[node name="StockShop" type="NinePatchRect" parent="." unique_id=637435342]
+z_index = 2
+layout_mode = 0
+offset_left = 585.0
+offset_top = 127.0
+offset_right = 935.0
+offset_bottom = 400.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("5_2wf2a")
+patch_margin_left = 6
+patch_margin_top = 22
+patch_margin_right = 6
+patch_margin_bottom = 6
+
+[node name="StockContainer" type="VBoxContainer" parent="StockShop" unique_id=1427362734]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 28.0
+offset_right = 339.0
+offset_bottom = 260.0
+script = ExtResource("9_bv5vx")
+stocks = Array[ExtResource("10_mmyc1")]([ExtResource("10_orod7")])

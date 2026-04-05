@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 	
 func set_label_text(value: float):
 	if value < 0:
-		text = "-$" + ('%.2f' % value)
+		text = "-$" + ('%.2f' % -value)
 		return
 	text = "$" + ('%.2f' % value)
 	

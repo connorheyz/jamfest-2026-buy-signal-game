@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bwcp3gc2fhxd6" path="res://test/BaseBG.png" id="3_sd31f"]
 [ext_resource type="Texture2D" uid="uid://dqqxtbnb1y38b" path="res://test/Hand.png" id="4_qmb8p"]
 [ext_resource type="PackedScene" uid="uid://5e1so7qveen1" path="res://stock_chart/live_stock_ticker.tscn" id="5_07u45"]
-[ext_resource type="Script" path="res://desktop/day_label.gd" id="6_7qdim"]
-[ext_resource type="Script" path="res://desktop/clock.gd" id="7_dipoy"]
+[ext_resource type="Script" uid="uid://bkofdjp51nu8g" path="res://desktop/day_label.gd" id="6_7qdim"]
+[ext_resource type="Script" uid="uid://dbwvsvfhxscud" path="res://desktop/clock.gd" id="7_dipoy"]
 [ext_resource type="PackedScene" uid="uid://cj0ka5piaau77" path="res://price_engine/stock_scene.tscn" id="8_mgcpr"]
 [ext_resource type="PackedScene" uid="uid://b4l86xnah0j5g" path="res://queue_up_menu/queue_up_menu.tscn" id="9_sd31f"]
 
