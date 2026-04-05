@@ -114,5 +114,6 @@ script = ExtResource("7_dipoy")
 unique_name_in_owner = true
 
 [node name="QueueUpMenu" parent="." unique_id=1808077402 instance=ExtResource("9_sd31f")]
+visible = false
 
 [connection signal="button_queue_up_pressed" from="QueueUpMenu" to="." method="_on_queue_up_menu_button_queue_up_pressed"]
