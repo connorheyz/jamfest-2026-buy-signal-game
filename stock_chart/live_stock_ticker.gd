@@ -64,6 +64,15 @@ func create_polygons_from_price_vertices():
 	transformed_vertices.append(Vector2((transformed_vertices[0]-offset).x, floor))
 	return transformed_vertices
 	
+func show_price_label(value: String) -> void:
+	if vertices.size() > 0:
+		%DiffLabel.visible = true
+		%DiffLabel.position = vertices[-1] + Vector2(-25, -50) - offset
+		%DiffLabel.text = value
+		
+func hide_price_label() -> void:
+	%DiffLabel.visible = false
+	
 func append_price(price: Price):
 	prices.append(price)
 	var vertex: Vector2 = create_vertex_for_price(price)

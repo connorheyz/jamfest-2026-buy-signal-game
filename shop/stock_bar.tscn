@@ -39,6 +39,10 @@ unique_name_in_owner = true
 z_index = 5
 color = Color(0.9991538, 0.59077847, 0.5653776, 1)
 
+[node name="DiffLabel" type="Label" parent="StockBox/LiveView" unique_id=921983082]
+unique_name_in_owner = true
+layout_mode = 2
+
 [node name="BuyContainer" type="VBoxContainer" parent="." unique_id=1157045812]
 layout_mode = 2
 

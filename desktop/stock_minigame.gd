@@ -27,6 +27,7 @@ func _ready() -> void:
 	%Clock.update_time_label(current_time)
 	stock = PlayerSaveState.current_stock
 	owned_at_open = PlayerSaveState.holdings[stock.ticker]
+	bought_price = PlayerSaveState.stock_prices[stock.ticker] * owned_at_open
 	%TickerLabel.text = stock.ticker
 	stock_ticker.append_price(Price.new(PlayerSaveState.stock_prices[stock.ticker], 0))
 	$MusicPlayer.stream = load("res://test/rhythmgame.mp3")
@@ -100,7 +101,7 @@ func _input(event):
 		
 	elif event.is_action_pressed("sell"):
 		if get_holding() and not day_closed:
-			profit += stock_ticker.get_latest_price().price - bought_price
+			profit += stock_ticker.get_latest_price().price * PlayerSaveState.holdings[stock.ticker] - bought_price
 			PlayerSaveState.current_money += PlayerSaveState.holdings[stock.ticker] * stock_ticker.get_latest_price().price
 			update_profit_label()
 			set_holding(false)
@@ -129,7 +130,10 @@ func _on_tick_timeout() -> void:
 		stock_ticker.set_color(Color.RED)
 	current_tick += 1
 	%TickTimer.start()
-
+	if get_holding():
+		stock_ticker.show_price_label('%.2f' % (stock_ticker.get_latest_price().price * owned_at_open - bought_price))
+	else:
+		stock_ticker.hide_price_label()
 
 func _on_queue_up_menu_button_queue_up_pressed(type: Stock.FunctionType, p_volatility: float, start_ticks: int, duration_ticks: int) -> void:
 	stock.queue_up(type, p_volatility, start_ticks, duration_ticks)

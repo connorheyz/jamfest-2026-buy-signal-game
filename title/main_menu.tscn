@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://cpiuf22j1k4ld"]
+
+[ext_resource type="Texture2D" uid="uid://dd3rej4vpc3pg" path="res://test/Title.png" id="1_r7w62"]
+[ext_resource type="Texture2D" uid="uid://bjjwqsndu7c23" path="res://test/Buttons.png" id="2_i03ve"]
+[ext_resource type="Script" uid="uid://xofwrmlbqan3" path="res://title/start_button.gd" id="3_t8hhy"]
+[ext_resource type="Script" uid="uid://cqunkue4s0vbi" path="res://title/options_button.gd" id="4_t8hhy"]
+[ext_resource type="Script" uid="uid://de7m67kbtp4l" path="res://title/quit_button.gd" id="5_cbmq4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cbmq4"]
+
+[node name="Desktop" type="Control" unique_id=1725560712]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=261100800]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_r7w62")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=1617046609]
+layout_mode = 0
+offset_right = 1150.0
+offset_bottom = 651.0
+texture = ExtResource("2_i03ve")
+expand_mode = 2
+
+[node name="StartButton" type="Button" parent="." unique_id=1652183618]
+layout_mode = 0
+offset_left = 110.0
+offset_top = 461.0
+offset_right = 382.0
+offset_bottom = 543.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cbmq4")
+script = ExtResource("3_t8hhy")
+
+[node name="OptionsButton" type="Button" parent="." unique_id=446742814]
+layout_mode = 0
+offset_left = 422.0
+offset_top = 463.0
+offset_right = 721.0
+offset_bottom = 545.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cbmq4")
+script = ExtResource("4_t8hhy")
+
+[node name="QuitButton" type="Button" parent="." unique_id=1835737455]
+layout_mode = 0
+offset_left = 774.0
+offset_top = 463.0
+offset_right = 1040.0
+offset_bottom = 545.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cbmq4")
+script = ExtResource("5_cbmq4")
+
+[connection signal="pressed" from="StartButton" to="StartButton" method="_on_pressed"]
+[connection signal="pressed" from="QuitButton" to="QuitButton" method="_on_pressed"]
