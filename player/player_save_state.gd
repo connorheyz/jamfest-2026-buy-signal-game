@@ -3,7 +3,7 @@ class_name PlayerSave
 
 var game_states: Array[GameState]
 
-var current_money: float = 1000
+var current_money: float = 0
 
 var current_day: int = 0
 

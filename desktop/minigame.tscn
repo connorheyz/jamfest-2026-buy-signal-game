@@ -20,7 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://b2fukhhxr3gje" path="res://shop/money_label.tscn" id="10_qmb8p"]
 [ext_resource type="PackedScene" uid="uid://d2qltat0v82t8" path="res://rhythm/rhythm_scene.tscn" id="11_07u45"]
 
-[node name="Desktop2" type="Control" unique_id=1725560712 node_paths=PackedStringArray("stock_ticker")]
+[node name="Desktop3" type="Control" unique_id=1725560712 node_paths=PackedStringArray("stock_ticker")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_cryhk")
