@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SwagItem" format=3 uid="uid://bavdoh2su45dx"]
+
+[ext_resource type="Script" uid="uid://db52rps2mfkon" path="res://shop/item.gd" id="1_dg48k"]
+[ext_resource type="Texture2D" uid="uid://cvaq8ysscjmda" path="res://test/Cards_Shop.png" id="2_q2kkb"]
+
+[resource]
+script = ExtResource("1_dg48k")
+price = 16000.0
+swag_points = 100.0
+name = "Faux-mon Cards"
+shop_icon = ExtResource("2_q2kkb")
+metadata/_custom_type_script = "uid://db52rps2mfkon"

@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dqqxtbnb1y38b" path="res://test/Hand.png" id="2_ew80y"]
 [ext_resource type="Script" uid="uid://dmpl64mi8vmxh" path="res://shop/total_money_label.gd" id="4_8u4xc"]
 [ext_resource type="Script" uid="uid://0g7uquq1g0wc" path="res://shop/stock_minigame_select.gd" id="4_g773h"]
+[ext_resource type="PackedScene" uid="uid://cu5tjrqdc4jd6" path="res://shop/decorations.tscn" id="5_f4i5f"]
 
 [node name="Desktop" type="Control" unique_id=1725560712]
 layout_mode = 3
@@ -56,3 +57,6 @@ offset_top = 70.0
 offset_right = 933.0
 offset_bottom = 400.0
 script = ExtResource("4_g773h")
+
+[node name="Decorations" parent="." unique_id=1984705299 instance=ExtResource("5_f4i5f")]
+layout_mode = 0

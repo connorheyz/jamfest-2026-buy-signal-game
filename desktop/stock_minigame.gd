@@ -15,6 +15,9 @@ var owned_at_open: int
 
 var stock: Stock
 
+@export var items: Array[SwagItem]
+@export var stocks: Array[Stock]
+
 var profit := 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -51,8 +54,24 @@ func end_day() -> void:
 	print(stock_ticker.get_latest_price().price)
 	PlayerSaveState.stock_prices[stock.ticker] = stock_ticker.get_latest_price().price
 	PlayerSaveState.game_states.append(day_save)
-	get_tree().change_scene_to_packed(results_screen)	
 	$MusicPlayer.stop()
+	match PlayerSaveState.current_day:
+		0:
+			PlayerSaveState.unlocked_items.append(items[0])
+		1:
+			PlayerSaveState.unlocked_items.append(items[1])
+		2:
+			PlayerSaveState.unlocked_stocks.append(stocks[0])
+		3: 
+			PlayerSaveState.unlocked_items.append(items[2])
+			PlayerSaveState.unlocked_items.append(items[3])
+		7:
+			PlayerSaveState.unlocked_stocks.append(stocks[1])
+		8: 
+			PlayerSaveState.unlocked_items.append(items[4])
+		
+	get_tree().change_scene_to_packed(results_screen)	
+	
 	
 func get_holding() -> bool:
 	return stock.ticker in PlayerSaveState.holdings and PlayerSaveState.holdings[stock.ticker] != 0

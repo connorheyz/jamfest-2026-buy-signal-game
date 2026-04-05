@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="SwagItem" format=3 uid="uid://bk7sp2f8gi4t"]
+
+[ext_resource type="Script" uid="uid://db52rps2mfkon" path="res://shop/item.gd" id="1_gjdgp"]
+[ext_resource type="Texture2D" uid="uid://by0qojxg3jjth" path="res://test/demon_hunters_poster.png" id="2_k05va"]
+
+[resource]
+script = ExtResource("1_gjdgp")
+price = 200.0
+swag_points = 100.0
+name = "K-pop Poster"
+shop_icon = ExtResource("2_k05va")
+metadata/_custom_type_script = "uid://db52rps2mfkon"

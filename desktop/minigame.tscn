@@ -2,21 +2,32 @@
 
 [ext_resource type="Script" uid="uid://dmh3yvetm8y26" path="res://desktop/stock_minigame.gd" id="1_cryhk"]
 [ext_resource type="PackedScene" uid="uid://by4rq741bdr8h" path="res://desktop/desktop_results.tscn" id="2_mgcpr"]
+[ext_resource type="Resource" uid="uid://b72uskicclatl" path="res://stocks/bitcoin.tres" id="3_7qdim"]
+[ext_resource type="Script" uid="uid://db52rps2mfkon" path="res://shop/item.gd" id="3_d8xyh"]
 [ext_resource type="Texture2D" uid="uid://bwcp3gc2fhxd6" path="res://test/BaseBG.png" id="3_sd31f"]
+[ext_resource type="Resource" uid="uid://crkqedhg015y7" path="res://stocks/msft.tres" id="4_dipoy"]
+[ext_resource type="Resource" uid="uid://c3bd0pq4i5i4m" path="res://items/your_name_mug.tres" id="4_lv0ul"]
 [ext_resource type="Texture2D" uid="uid://dqqxtbnb1y38b" path="res://test/Hand.png" id="4_qmb8p"]
 [ext_resource type="PackedScene" uid="uid://5e1so7qveen1" path="res://stock_chart/live_stock_ticker.tscn" id="5_07u45"]
+[ext_resource type="Resource" uid="uid://bavdoh2su45dx" path="res://items/cards.tres" id="5_mny2f"]
 [ext_resource type="Script" uid="uid://bkofdjp51nu8g" path="res://desktop/day_label.gd" id="6_7qdim"]
+[ext_resource type="Resource" uid="uid://bk7sp2f8gi4t" path="res://items/poster.tres" id="6_vb3oy"]
 [ext_resource type="Script" uid="uid://dbwvsvfhxscud" path="res://desktop/clock.gd" id="7_dipoy"]
+[ext_resource type="Resource" uid="uid://cl6r6yi5aqkgt" path="res://items/headphones.tres" id="7_w68wv"]
+[ext_resource type="Resource" uid="uid://c1cnpv3ydvpte" path="res://items/diamond_hands.tres" id="8_jmulx"]
 [ext_resource type="PackedScene" uid="uid://b4l86xnah0j5g" path="res://queue_up_menu/queue_up_menu.tscn" id="9_sd31f"]
+[ext_resource type="Script" uid="uid://th2tlyhy2w0t" path="res://price_engine/stock.gd" id="9_xbbxo"]
 [ext_resource type="PackedScene" uid="uid://b2fukhhxr3gje" path="res://shop/money_label.tscn" id="10_qmb8p"]
 [ext_resource type="PackedScene" uid="uid://d2qltat0v82t8" path="res://rhythm/rhythm_scene.tscn" id="11_07u45"]
 
-[node name="Desktop" type="Control" unique_id=1725560712 node_paths=PackedStringArray("stock_ticker")]
+[node name="Desktop2" type="Control" unique_id=1725560712 node_paths=PackedStringArray("stock_ticker")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_cryhk")
 stock_ticker = NodePath("StockTicker")
 results_screen = ExtResource("2_mgcpr")
+items = Array[ExtResource("3_d8xyh")]([ExtResource("4_lv0ul"), ExtResource("5_mny2f"), ExtResource("6_vb3oy"), ExtResource("7_w68wv"), ExtResource("8_jmulx")])
+stocks = Array[ExtResource("9_xbbxo")]([ExtResource("4_dipoy"), ExtResource("3_7qdim")])
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=261100800]
 layout_mode = 1
@@ -127,6 +138,8 @@ unique_name_in_owner = true
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1756740756]
 volume_db = -12.0
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1477784207]
 
 [connection signal="button_queue_up_pressed" from="QueueUpMenu" to="." method="_on_queue_up_menu_button_queue_up_pressed"]
 [connection signal="enqueue_cue" from="RhythmScene" to="." method="_on_rhythm_scene_enqueue_cue"]
