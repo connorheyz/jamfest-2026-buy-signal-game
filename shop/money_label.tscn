@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://b2fukhhxr3gje"]
+
+[ext_resource type="Script" uid="uid://dmpl64mi8vmxh" path="res://shop/total_money_label.gd" id="1_jcv4g"]
+
+[node name="MoneyLabel" type="Label" unique_id=1319991699]
+offset_left = 23.0
+offset_top = 18.0
+offset_right = 157.0
+offset_bottom = 70.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Money: $500"
+script = ExtResource("1_jcv4g")
