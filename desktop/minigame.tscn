@@ -140,6 +140,7 @@ unique_name_in_owner = true
 volume_db = -12.0
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1477784207]
+volume_db = -12.0
 
 [connection signal="button_queue_up_pressed" from="QueueUpMenu" to="." method="_on_queue_up_menu_button_queue_up_pressed"]
 [connection signal="enqueue_cue" from="RhythmScene" to="." method="_on_rhythm_scene_enqueue_cue"]

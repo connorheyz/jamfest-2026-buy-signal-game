@@ -32,3 +32,5 @@ text = "$100"
 [node name="BuyButton" type="Button" parent="BuyContainer" unique_id=547353989]
 layout_mode = 2
 text = "Buy"
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1783382404]

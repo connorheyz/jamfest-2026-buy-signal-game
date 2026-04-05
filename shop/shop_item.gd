@@ -18,6 +18,11 @@ func _attempt_buy() -> void:
 		PlayerSaveState.current_money -= item.price
 		PlayerSaveState.items.append(item)
 		queue_free()
+		$SFXPlayer.stream = load("res://test/kaching1.mp3")
+		$SFXPlayer.play()
+	else:
+		$SFXPlayer.stream = load("res://test/fail.mp3")
+		$SFXPlayer.play()
 		
 
 func initialize_from_item(item: SwagItem) -> void:
