@@ -137,7 +137,6 @@ offset_bottom = 52.0
 unique_name_in_owner = true
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1756740756]
-volume_db = -12.0
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1477784207]
 volume_db = -12.0

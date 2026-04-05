@@ -39,4 +39,4 @@ func _trade_button() -> void:
 	PlayerSaveState.current_stock = stock
 	PlayerSaveState.holding = true
 	get_tree().change_scene_to_file("res://desktop/minigame.tscn")
-	
+	$ClickPlayer.play()

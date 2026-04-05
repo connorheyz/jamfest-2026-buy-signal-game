@@ -40,6 +40,11 @@ func _attempt_buy_ten() -> void:
 		if stock not in PlayerSaveState.portfolio:
 			PlayerSaveState.portfolio.append(stock)
 		PlayerSaveState.current_money -= PlayerSaveState.stock_prices[stock.ticker] * 10
+		$SFXPlayer.stream = load("res://test/kaching1.mp3")
+		$SFXPlayer.play()
+	else:
+		$SFXPlayer.stream = load("res://test/fail.mp3")
+		$SFXPlayer.play()
 	
 func _attempt_buy_one() -> void:
 	if PlayerSaveState.current_money > PlayerSaveState.stock_prices[stock.ticker]:
@@ -50,3 +55,8 @@ func _attempt_buy_one() -> void:
 		if stock not in PlayerSaveState.portfolio:
 			PlayerSaveState.portfolio.append(stock)
 		PlayerSaveState.current_money -= PlayerSaveState.stock_prices[stock.ticker]
+		$SFXPlayer.stream = load("res://test/kaching1.mp3")
+		$SFXPlayer.play()
+	else:
+		$SFXPlayer.stream = load("res://test/fail.mp3")
+		$SFXPlayer.play()

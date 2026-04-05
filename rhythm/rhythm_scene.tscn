@@ -6,4 +6,4 @@
 script = ExtResource("1_spmn5")
 
 [node name="CuePlayer" type="AudioStreamPlayer2D" parent="." unique_id=2066035708]
-volume_db = 3.0
+volume_db = 5.0

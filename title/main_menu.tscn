@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://xofwrmlbqan3" path="res://title/start_button.gd" id="3_t8hhy"]
 [ext_resource type="Script" uid="uid://cqunkue4s0vbi" path="res://title/options_button.gd" id="4_t8hhy"]
 [ext_resource type="Script" uid="uid://de7m67kbtp4l" path="res://title/quit_button.gd" id="5_cbmq4"]
+[ext_resource type="AudioStream" uid="uid://iur8idtqx7sg" path="res://test/main_menu_theme.mp3" id="6_cbmq4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cbmq4"]
 
@@ -59,6 +60,11 @@ offset_right = 1040.0
 offset_bottom = 545.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_cbmq4")
 script = ExtResource("5_cbmq4")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1796501826]
+stream = ExtResource("6_cbmq4")
+volume_db = -4.0
+autoplay = true
 
 [connection signal="pressed" from="StartButton" to="StartButton" method="_on_pressed"]
 [connection signal="pressed" from="QuitButton" to="QuitButton" method="_on_pressed"]

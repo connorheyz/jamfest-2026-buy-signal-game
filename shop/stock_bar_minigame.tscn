@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b5a05o2cbb3s2" path="res://shop/stock_bar_minigame.gd" id="1_r4uao"]
 [ext_resource type="Script" uid="uid://b04apjaej1l6x" path="res://stock_chart/live_stock_ticker.gd" id="3_mbvgj"]
+[ext_resource type="AudioStream" uid="uid://c07q23p6in7vx" path="res://test/click.mp3" id="3_qlnmj"]
 
 [node name="StockBar" type="HBoxContainer" unique_id=420853837 node_paths=PackedStringArray("stock_bar", "stock_ticker", "stock_price", "trade_button")]
 script = ExtResource("1_r4uao")
@@ -56,3 +57,7 @@ layout_mode = 2
 [node name="Select" type="Button" parent="BuyContainer/BuyButtons" unique_id=260066879]
 layout_mode = 2
 text = "Day Trade"
+
+[node name="ClickPlayer" type="AudioStreamPlayer2D" parent="." unique_id=1568164660]
+stream = ExtResource("3_qlnmj")
+volume_db = 24.0

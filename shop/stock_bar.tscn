@@ -61,3 +61,5 @@ text = "Buy 1"
 [node name="BuyTen" type="Button" parent="BuyContainer/BuyButtons" unique_id=720708857]
 layout_mode = 2
 text = "Buy 10"
+
+[node name="SFXPlayer" type="AudioStreamPlayer2D" parent="." unique_id=731402853]
