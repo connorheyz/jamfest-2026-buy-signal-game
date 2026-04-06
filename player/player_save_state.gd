@@ -12,6 +12,19 @@ var current_day: int = 0
 
 @export var stock_prices: = {}
 
+func get_networth() -> float:
+	var networth = current_money
+	for stock in holdings:
+		var amount = holdings[stock]
+		networth += (amount * stock_prices[stock])
+	return networth
+	
+func liquidate_all() -> void:
+	for stock in holdings:
+		var amount = holdings[stock]
+		current_money += (amount * stock_prices[stock])
+		holdings[stock] = 0
+	
 var items: Array[SwagItem]
 
 var previous_day_prices:= {}

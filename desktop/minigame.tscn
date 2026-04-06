@@ -19,6 +19,8 @@
 [ext_resource type="Script" uid="uid://th2tlyhy2w0t" path="res://price_engine/stock.gd" id="9_xbbxo"]
 [ext_resource type="PackedScene" uid="uid://b2fukhhxr3gje" path="res://shop/money_label.tscn" id="10_qmb8p"]
 [ext_resource type="PackedScene" uid="uid://d2qltat0v82t8" path="res://rhythm/rhythm_scene.tscn" id="11_07u45"]
+[ext_resource type="Script" uid="uid://byxegdmpvax0o" path="res://shop/networth_label.gd" id="19_lv0ul"]
+[ext_resource type="PackedScene" uid="uid://cu5tjrqdc4jd6" path="res://shop/decorations.tscn" id="21_mny2f"]
 
 [node name="Desktop3" type="Control" unique_id=1725560712 node_paths=PackedStringArray("stock_ticker")]
 layout_mode = 3
@@ -126,12 +128,14 @@ script = ExtResource("7_dipoy")
 [node name="QueueUpMenu" parent="." unique_id=1808077402 instance=ExtResource("9_sd31f")]
 visible = false
 
-[node name="MoneyLabel" parent="." unique_id=1319991699 instance=ExtResource("10_qmb8p")]
+[node name="MoneyLabel" parent="." unique_id=1319991699 node_paths=PackedStringArray("minigame") instance=ExtResource("10_qmb8p")]
 layout_mode = 0
-offset_left = 0.0
-offset_top = 0.0
-offset_right = 134.0
-offset_bottom = 52.0
+offset_left = 24.0
+offset_top = 21.0
+offset_right = 158.0
+offset_bottom = 73.0
+script = ExtResource("19_lv0ul")
+minigame = NodePath("..")
 
 [node name="RhythmScene" parent="." unique_id=2051092556 instance=ExtResource("11_07u45")]
 unique_name_in_owner = true
@@ -140,6 +144,9 @@ unique_name_in_owner = true
 
 [node name="SFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1477784207]
 volume_db = -12.0
+
+[node name="Decorations" parent="." unique_id=1984705299 instance=ExtResource("21_mny2f")]
+layout_mode = 0
 
 [connection signal="button_queue_up_pressed" from="QueueUpMenu" to="." method="_on_queue_up_menu_button_queue_up_pressed"]
 [connection signal="enqueue_cue" from="RhythmScene" to="." method="_on_rhythm_scene_enqueue_cue"]

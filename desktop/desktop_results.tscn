@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c0m537j45b22p" path="res://test/ZackBG.png" id="2_yixt3"]
 [ext_resource type="Script" uid="uid://wgfwn84bmhlm" path="res://desktop/money_count.gd" id="3_nqtfi"]
+[ext_resource type="PackedScene" uid="uid://cu5tjrqdc4jd6" path="res://shop/decorations.tscn" id="4_m0rpk"]
 [ext_resource type="Script" uid="uid://baia7oc5hv05w" path="res://desktop/next_button_results.gd" id="4_qn5pl"]
 
 [node name="Desktop" type="Control" unique_id=1725560712]
@@ -22,12 +23,12 @@ size_flags_vertical = 3
 texture = ExtResource("2_yixt3")
 expand_mode = 1
 
-[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1792684661]
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1792684661 node_paths=PackedStringArray("networth_label", "liquid_label")]
 layout_mode = 0
 offset_left = 210.0
 offset_top = 64.0
 offset_right = 945.0
-offset_bottom = 408.0
+offset_bottom = 180.0
 theme_override_font_sizes/normal_font_size = 64
 theme_override_font_sizes/bold_font_size = 64
 theme_override_font_sizes/bold_italics_font_size = 64
@@ -37,6 +38,8 @@ text = "$500"
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("3_nqtfi")
+networth_label = NodePath("../Networth")
+liquid_label = NodePath("../Liquid")
 
 [node name="NextButtonResults" type="Button" parent="." unique_id=1234109719]
 unique_name_in_owner = true
@@ -47,3 +50,28 @@ offset_right = 934.0
 offset_bottom = 393.0
 text = "Next"
 script = ExtResource("4_qn5pl")
+
+[node name="Decorations" parent="." unique_id=1984705299 instance=ExtResource("4_m0rpk")]
+layout_mode = 0
+
+[node name="Liquid" type="Label" parent="." unique_id=1184668740]
+visible = false
+layout_mode = 0
+offset_left = 220.0
+offset_top = 195.0
+offset_right = 927.0
+offset_bottom = 224.0
+text = "Assets Liquidated!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Networth" type="Label" parent="." unique_id=1889444033]
+visible = false
+layout_mode = 0
+offset_left = 228.0
+offset_top = 258.0
+offset_right = 933.0
+offset_bottom = 281.0
+text = "Net Worth: $"
+horizontal_alignment = 1
+vertical_alignment = 1

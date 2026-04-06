@@ -17,7 +17,7 @@ size_flags_horizontal = 3
 
 [node name="Ticker" type="Label" parent="StockBox" unique_id=1010118792]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "VTI"
 
 [node name="LiveView" type="Container" parent="StockBox" unique_id=1216769931]
@@ -48,7 +48,7 @@ layout_mode = 2
 
 [node name="Price" type="Label" parent="BuyContainer" unique_id=650167422]
 layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 text = "$4.57"
 
 [node name="BuyButtons" type="HBoxContainer" parent="BuyContainer" unique_id=1302051727]
