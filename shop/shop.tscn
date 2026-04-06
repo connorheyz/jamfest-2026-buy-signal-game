@@ -5,7 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://dqqxtbnb1y38b" path="res://test/Hand.png" id="4_3mibv"]
 [ext_resource type="Texture2D" uid="uid://o751xv776aef" path="res://test/Window.png" id="5_2wf2a"]
 [ext_resource type="Script" uid="uid://duspkodcoiisu" path="res://shop/next_button.gd" id="5_gy7ao"]
-[ext_resource type="Script" uid="uid://ded45xebtubf3" path="res://shop/item_shop.gd" id="7_orod7"]
+[ext_resource type="Script" path="res://shop/item_shop.gd" id="7_orod7"]
+[ext_resource type="PackedScene" uid="uid://cu5tjrqdc4jd6" path="res://shop/decorations.tscn" id="8_xad5q"]
 [ext_resource type="Script" uid="uid://cjhl6tca3aqc2" path="res://shop/stock_container.gd" id="9_bv5vx"]
 
 [node name="StockSelection" type="Control" unique_id=1725560712]
@@ -103,3 +104,6 @@ offset_right = 406.0
 offset_bottom = 505.0
 text = "Next"
 script = ExtResource("5_gy7ao")
+
+[node name="Decorations" parent="." unique_id=1984705299 instance=ExtResource("8_xad5q")]
+layout_mode = 0

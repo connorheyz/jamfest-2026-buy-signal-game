@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://cueawlvuqt4ak"]
+
+[ext_resource type="Texture2D" uid="uid://c0m537j45b22p" path="res://test/ZackBG.png" id="1_hmshp"]
+[ext_resource type="Script" uid="uid://cafrk6aumwxj3" path="res://end_screen/end_screen.gd" id="1_mkgft"]
+[ext_resource type="PackedScene" uid="uid://cu5tjrqdc4jd6" path="res://shop/decorations.tscn" id="2_mkgft"]
+[ext_resource type="Script" uid="uid://de7m67kbtp4l" path="res://title/quit_button.gd" id="4_q7ipi"]
+[ext_resource type="Texture2D" uid="uid://vjtlacib0yla" path="res://test/quitbutton.png" id="5_hfn2g"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1odwr"]
+
+[node name="EndScreen" type="Node2D" unique_id=716434610]
+script = ExtResource("1_mkgft")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=683731210]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("1_hmshp")
+expand_mode = 1
+
+[node name="BadEndLabel" type="Label" parent="." unique_id=81842771]
+unique_name_in_owner = true
+visible = false
+offset_left = 230.0
+offset_top = 343.0
+offset_right = 940.0
+offset_bottom = 444.0
+text = "Oh no I'm so bad, my roommate is here and thinks i'm lame becuase I couldn't get all of the things. NOOOOOOOOOOOOOOOOOOOOOOOOOOO
+"
+autowrap_mode = 2
+
+[node name="GoodEndLabel" type="Label" parent="." unique_id=2114289243]
+unique_name_in_owner = true
+visible = false
+offset_left = 233.0
+offset_top = 370.0
+offset_right = 943.0
+offset_bottom = 471.0
+text = "Oh wow i'm so good my roommate is here so I can impress them with all of my cool stuff"
+autowrap_mode = 2
+
+[node name="Decorations" parent="." unique_id=1984705299 instance=ExtResource("2_mkgft")]
+
+[node name="QuitButton" type="Button" parent="." unique_id=1706158414]
+offset_left = 836.0
+offset_top = 527.0
+offset_right = 1032.0
+offset_bottom = 603.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_1odwr")
+script = ExtResource("4_q7ipi")
+
+[node name="Quitbutton" type="Sprite2D" parent="." unique_id=411237130]
+position = Vector2(943, 572)
+scale = Vector2(0.31336105, 0.31336105)
+texture = ExtResource("5_hfn2g")
+
+[connection signal="pressed" from="QuitButton" to="QuitButton" method="_on_pressed"]
