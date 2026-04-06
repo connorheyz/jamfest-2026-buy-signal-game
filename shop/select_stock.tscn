@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dqqxtbnb1y38b" path="res://test/Hand.png" id="2_ew80y"]
 [ext_resource type="Script" uid="uid://dmpl64mi8vmxh" path="res://shop/total_money_label.gd" id="4_8u4xc"]
 [ext_resource type="Script" uid="uid://0g7uquq1g0wc" path="res://shop/stock_minigame_select.gd" id="4_g773h"]
-[ext_resource type="PackedScene" uid="uid://cu5tjrqdc4jd6" path="res://shop/decorations.tscn" id="5_f4i5f"]
+[ext_resource type="PackedScene" uid="uid://be5pbu6kv5sqi" path="res://shop/decorations.tscn" id="5_f4i5f"]
+[ext_resource type="AudioStream" uid="uid://mowdudeb7j0c" path="res://test/ambience.mp3" id="6_iiwc5"]
 
 [node name="Desktop2" type="Control" unique_id=1725560712]
 layout_mode = 3
@@ -60,3 +61,8 @@ script = ExtResource("4_g773h")
 
 [node name="Decorations" parent="." unique_id=1984705299 instance=ExtResource("5_f4i5f")]
 layout_mode = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=2046115401]
+stream = ExtResource("6_iiwc5")
+volume_db = -20.0
+autoplay = true
