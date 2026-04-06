@@ -2,9 +2,10 @@
 
 [ext_resource type="Texture2D" uid="uid://bwcp3gc2fhxd6" path="res://test/BaseBG.png" id="1_o20wa"]
 [ext_resource type="Texture2D" uid="uid://dqqxtbnb1y38b" path="res://test/Hand.png" id="2_ew80y"]
+[ext_resource type="Script" uid="uid://b5c2wttd8720e" path="res://shop/hand.gd" id="3_ldkkm"]
 [ext_resource type="Script" uid="uid://dmpl64mi8vmxh" path="res://shop/total_money_label.gd" id="4_8u4xc"]
 [ext_resource type="Script" uid="uid://0g7uquq1g0wc" path="res://shop/stock_minigame_select.gd" id="4_g773h"]
-[ext_resource type="PackedScene" uid="uid://be5pbu6kv5sqi" path="res://shop/decorations.tscn" id="5_f4i5f"]
+[ext_resource type="PackedScene" uid="uid://cu5tjrqdc4jd6" path="res://shop/decorations.tscn" id="5_f4i5f"]
 [ext_resource type="AudioStream" uid="uid://mowdudeb7j0c" path="res://test/ambience.mp3" id="6_iiwc5"]
 
 [node name="Desktop2" type="Control" unique_id=1725560712]
@@ -40,6 +41,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("2_ew80y")
 expand_mode = 1
+script = ExtResource("3_ldkkm")
 
 [node name="Label" type="Label" parent="." unique_id=744864017]
 layout_mode = 0
