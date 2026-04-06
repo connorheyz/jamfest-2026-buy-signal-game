@@ -19,6 +19,7 @@
 [ext_resource type="Script" uid="uid://th2tlyhy2w0t" path="res://price_engine/stock.gd" id="9_xbbxo"]
 [ext_resource type="PackedScene" uid="uid://b2fukhhxr3gje" path="res://shop/money_label.tscn" id="10_qmb8p"]
 [ext_resource type="PackedScene" uid="uid://d2qltat0v82t8" path="res://rhythm/rhythm_scene.tscn" id="11_07u45"]
+[ext_resource type="Script" uid="uid://b5c2wttd8720e" path="res://shop/hand.gd" id="14_vb3oy"]
 [ext_resource type="Script" uid="uid://byxegdmpvax0o" path="res://shop/networth_label.gd" id="19_lv0ul"]
 [ext_resource type="PackedScene" uid="uid://cu5tjrqdc4jd6" path="res://shop/decorations.tscn" id="21_mny2f"]
 
@@ -60,6 +61,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource("4_qmb8p")
 expand_mode = 1
+script = ExtResource("14_vb3oy")
 
 [node name="StockTicker" parent="." unique_id=1406283059 instance=ExtResource("5_07u45")]
 clip_contents = true
