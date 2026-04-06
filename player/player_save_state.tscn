@@ -11,7 +11,7 @@ holdings = {
 }
 portfolio = Array[ExtResource("2_leno1")]([ExtResource("3_leno1")])
 stock_prices = {
-"BTC": 70000.0,
+"BTC": 1000.0,
 "MSFT": 480.0,
 "VTI": 50.0
 }

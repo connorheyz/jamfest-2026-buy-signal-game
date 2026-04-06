@@ -96,7 +96,7 @@ func _input(event):
 		
 	elif event.is_action_pressed("sell"):
 		if get_holding() and not day_closed:
-			profit += stock_ticker.get_latest_price().price * PlayerSaveState.holdings[stock.ticker] - bought_price
+			profit += stock_ticker.get_latest_price().price * owned_at_open - bought_price
 			update_profit_label()
 			set_holding(false)
 			%RhythmScene.bought_or_sold()
@@ -119,7 +119,7 @@ func _on_tick_timeout() -> void:
 	stock_ticker.append_price(Price.new(new_price, current_tick))
 	var latest_price: Price = stock_ticker.get_latest_price()
 	
-	if latest_price.price > bought_price:
+	if latest_price.price > bought_price and get_holding():
 		stock_ticker.set_color(Color.GREEN_YELLOW)
 	else:
 		stock_ticker.set_color(Color.RED)
