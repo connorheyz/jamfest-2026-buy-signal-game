@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://ded45xebtubf3" path="res://shop/item_shop.gd" id="7_orod7"]
 [ext_resource type="PackedScene" uid="uid://cu5tjrqdc4jd6" path="res://shop/decorations.tscn" id="8_xad5q"]
 [ext_resource type="Script" uid="uid://cjhl6tca3aqc2" path="res://shop/stock_container.gd" id="9_bv5vx"]
+[ext_resource type="AudioStream" uid="uid://cpxcj5eu28y30" path="res://test/shop_theme.mp3" id="10_bv5vx"]
 
 [node name="StockSelection" type="Control" unique_id=1725560712]
 layout_mode = 3
@@ -109,3 +110,8 @@ script = ExtResource("5_gy7ao")
 
 [node name="Decorations" parent="." unique_id=1984705299 instance=ExtResource("8_xad5q")]
 layout_mode = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1726044598]
+stream = ExtResource("10_bv5vx")
+volume_db = -3.0
+autoplay = true
