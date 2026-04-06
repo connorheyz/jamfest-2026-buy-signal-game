@@ -51,7 +51,6 @@ func end_day() -> void:
 	PlayerSaveState.previous_day_prices[stock.ticker] = []
 	for price in stock_ticker.prices:
 		PlayerSaveState.previous_day_prices[stock.ticker].append(price.price)
-	PlayerSaveState.current_money += profit
 	print(stock_ticker.get_latest_price().price)
 	PlayerSaveState.stock_prices[stock.ticker] = stock_ticker.get_latest_price().price
 	PlayerSaveState.game_states.append(day_save)
@@ -87,14 +86,10 @@ func _input(event):
 	if event.is_action_pressed("buy"):
 		if not get_holding() and not day_closed:
 			var temp_bought_price = stock_ticker.get_latest_price().price
-			if PlayerSaveState.current_money > temp_bought_price * owned_at_open:
-				bought_price = temp_bought_price * owned_at_open
-				PlayerSaveState.current_money -= bought_price
-				set_holding(true)
-				%RhythmScene.bought_or_sold()
-				$SFXPlayer.stream = load("res://test/kaching1.mp3")
-			else:
-				$SFXPlayer.stream = load("res://test/fail.mp3")
+			bought_price = temp_bought_price * owned_at_open
+			set_holding(true)
+			%RhythmScene.bought_or_sold()
+			$SFXPlayer.stream = load("res://test/kaching1.mp3")
 		else:
 			$SFXPlayer.stream = load("res://test/fail.mp3")	
 		$SFXPlayer.play()
@@ -102,7 +97,6 @@ func _input(event):
 	elif event.is_action_pressed("sell"):
 		if get_holding() and not day_closed:
 			profit += stock_ticker.get_latest_price().price * PlayerSaveState.holdings[stock.ticker] - bought_price
-			PlayerSaveState.current_money += PlayerSaveState.holdings[stock.ticker] * stock_ticker.get_latest_price().price
 			update_profit_label()
 			set_holding(false)
 			%RhythmScene.bought_or_sold()
@@ -121,6 +115,7 @@ func _on_tick_timeout() -> void:
 	stock.reroll_out()
 	var diff := stock.get_next_diff()
 	var new_price = max(0, stock_ticker.prices[-1].price + diff)
+	PlayerSaveState.stock_prices[stock.ticker] = new_price
 	stock_ticker.append_price(Price.new(new_price, current_tick))
 	var latest_price: Price = stock_ticker.get_latest_price()
 	
