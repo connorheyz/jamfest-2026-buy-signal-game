@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cu5tjrqdc4jd6" path="res://shop/decorations.tscn" id="2_mkgft"]
 [ext_resource type="Script" uid="uid://de7m67kbtp4l" path="res://title/quit_button.gd" id="4_q7ipi"]
 [ext_resource type="Texture2D" uid="uid://vjtlacib0yla" path="res://test/quitbutton.png" id="5_hfn2g"]
+[ext_resource type="AudioStream" uid="uid://b38ievvdcoyso" path="res://test/endscreensong.wav" id="6_hfn2g"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1odwr"]
 
@@ -59,5 +60,9 @@ script = ExtResource("4_q7ipi")
 position = Vector2(943, 572)
 scale = Vector2(0.31336105, 0.31336105)
 texture = ExtResource("5_hfn2g")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=482194690]
+stream = ExtResource("6_hfn2g")
+autoplay = true
 
 [connection signal="pressed" from="QuitButton" to="QuitButton" method="_on_pressed"]
